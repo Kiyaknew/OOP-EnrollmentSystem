@@ -3,16 +3,16 @@ package org.example;
 public class Course {
     private int courseID;
     private String courseName;
-    private String program;
+    private String course;
 
     public Course(){
 
     }
 
-    public Course( int courseID, String courseName, String program){
+    public Course( int courseID, String courseName, String course){
         this.courseID = courseID;
         this.courseName = courseName;
-        this.program = program;
+        this.course = course;
     }
 
     public int getCourseID(){
@@ -31,11 +31,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getProgram(){
-        return program;
+    public String getCourse(){
+        return course;
     }
 
-    public void setProgram(String program){
-        this.program = program;
+    public void setCourse(String course){
+        this.course = course;
     }
 }
