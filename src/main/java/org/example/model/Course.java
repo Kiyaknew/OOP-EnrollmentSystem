@@ -1,18 +1,18 @@
-package org.example;
+package org.example.model;
 
-public class Course {
+public class Course{
     private int courseID;
     private String courseName;
-    private String course;
+    private String program;
 
     public Course(){
 
     }
 
-    public Course( int courseID, String courseName, String course){
+    public Course( int courseID, String courseName, String program){
         this.courseID = courseID;
         this.courseName = courseName;
-        this.course = course;
+        this.program = program;
     }
 
     public int getCourseID(){
@@ -32,10 +32,10 @@ public class Course {
     }
 
     public String getCourse(){
-        return course;
+        return program;
     }
 
     public void setCourse(String course){
-        this.course = course;
+        this.program = program;
     }
 }
