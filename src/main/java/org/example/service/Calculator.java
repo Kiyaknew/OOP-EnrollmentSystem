@@ -1,5 +1,7 @@
 package org.example.service;
 
+import java.math.BigDecimal;
+
 public class Calculator {
     private int answer;
     //add
@@ -15,7 +17,15 @@ public class Calculator {
         answer = a - b;
     }
 
-    public int getAnswer() {
+    public void division(double a, double b){
+        answer = a / b;
+    }
+
+    public void multiplication(int a, int b){
+        answer = a * b;
+    }
+
+    public int getAnswer(){
         return answer;
     }
 }
