@@ -6,8 +6,11 @@ public class Student extends Person {
     public Student(){
     }
 
-    public Student(int id, String name, String program){
+    public Student(int id, String name){
         super(id, name);
+    }
+
+    public Student(int id, String name, String program){
         this.program = program;
     }
 

@@ -17,7 +17,7 @@ public class Calculator {
         answer = a - b;
     }
 
-    public void division(double a, double b){
+    public void division(int a, int b){
         answer = a / b;
     }
 
