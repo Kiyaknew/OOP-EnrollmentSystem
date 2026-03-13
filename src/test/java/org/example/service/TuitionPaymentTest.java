@@ -15,6 +15,7 @@ class TuitionPaymentTest {
         @Test
         void testCalculateFee() {
             double result = pay.calculateTuitionFee(10, 0.2);
+            System.out.println(result);
             assertEquals(8000, result);
         }
 
