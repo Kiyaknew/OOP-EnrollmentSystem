@@ -1,6 +1,5 @@
 package org.example.service;
 import org.example.model.Student;
-import org.example.model.Person;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -41,6 +40,6 @@ public class StudentEnroll {
                     return "Successfully deleted student.";
                 }
             }
-            return "Error occurred with deleting student";
+            return "Error occurred with deleting student.";
     }
 }
