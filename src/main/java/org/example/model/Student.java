@@ -22,3 +22,6 @@ public class Student extends Person {
         this.program = program;
     }
 }
+    public void mainTask(){
+    System.out.println("Study");
+    }
