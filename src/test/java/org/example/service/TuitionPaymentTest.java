@@ -2,19 +2,18 @@ package org.example.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TuitionPaymentTest {
-        private TuitionPayment pay;
+        private TuitionPayment tuitionPayment;
 
         @BeforeEach
         void set() {
-            pay = new TuitionPayment();
+            tuitionPayment = new TuitionPayment();
         }
         @Test
         void testCalculateFee() {
-            double result = pay.calculateTuitionFee(10, 0.2);
+            double result = tuitionPayment.calculateTuitionFee(10, 0.2);
             System.out.println(result);
             assertEquals(8000, result);
         }

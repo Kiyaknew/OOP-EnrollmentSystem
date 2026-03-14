@@ -1,19 +1,20 @@
 package org.example.service;
 
 public class TuitionPayment {
-    private double pricePerUnit = 1000;
+    private double pricePerUnit = 1000.00;
     private double balance;
     private double totalTuition;
 
         public double calculateTuitionFee(int units, double discountRate){
             totalTuition = units * pricePerUnit;
-            double tuitionDiscount = totalTuition * discountRate;
-            balance = totalTuition - tuitionDiscount;
-            return balance;
+            if(discountRate != 0) {
+                totalTuition = totalTuition -(totalTuition * discountRate);
+            }
+            return totalTuition;
         }
 
         public void makePayment(double amount){
-            balance =- amount;
+            balance = totalTuition - amount;
         }
 
         public double getRemainingBalance(){
@@ -21,7 +22,7 @@ public class TuitionPayment {
         }
 
         public boolean isFullyPaid(){
-            return balance <= 0;
+            return balance == 0 ? true : false;
         }
 
 }
