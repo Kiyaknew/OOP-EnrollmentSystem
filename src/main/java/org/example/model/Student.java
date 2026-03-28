@@ -3,14 +3,11 @@ package org.example.model;
 public class Student extends Person {
     private String program;
 
-    public Student(){
+    public Student(int id, String name, int age){
+        super(id, name, age);
     }
 
-    public Student(int id, String name){
-        super(id, name);
-    }
-
-    public Student(int id, String name, String program){
+    public Student(int id, String name, int age,  String program){
         this.program = program;
     }
 
@@ -20,5 +17,9 @@ public class Student extends Person {
 
     public void setProgram(String program){
         this.program = program;
+    }
+
+    public void mainTask(){
+        System.out.println("Study");
     }
 }

@@ -1,8 +1,9 @@
 package org.example.model;
 
-public class Person {
+public abstract class Person {
     private int id;
     private String name;
+    private int age;
     public Person(){
         this(0);
 
@@ -14,8 +15,15 @@ public class Person {
     }
 
     public Person(int id, String name){
+        this(id, name, 0);
         this.id = id;
         this.name = name;
+    }
+
+    public Person(int id, String name, int age){
+        this.id = id;
+        this.name = name;
+        this.age = age;
     }
 
     public int getId(){
@@ -33,4 +41,16 @@ public class Person {
     public void setName(String name){
         this.name = name;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+
+    public void mainTask();
+
+    public void facultyTask();
 }
