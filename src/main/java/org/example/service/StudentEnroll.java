@@ -27,7 +27,10 @@ public class StudentEnroll {
                     System.out.println("Enter new student program: ");
                     String program = input.nextLine();
 
-                    studentsList.set(i, new Student(student.getId(), name, program));
+                    System.out.println("Enter new student age: ");
+                    int age = input.nextInt();
+
+                    studentsList.set(i, new Student(student.getId(), name, age, program));
                     break;
                 }
             }

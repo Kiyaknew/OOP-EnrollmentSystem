@@ -50,7 +50,4 @@ public abstract class Person {
         this.age = age;
     }
 
-    public void mainTask();
-
-    public void facultyTask();
 }

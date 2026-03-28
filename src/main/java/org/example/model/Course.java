@@ -31,11 +31,19 @@ public class Course{
         this.courseName = courseName;
     }
 
-    public String getCourse(){
+    public String getProgram(){
         return program;
     }
 
-    public void setCourse(String course){
+    public void setProgram(String program){
         this.program = program;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID=" + getCourseID() +
+                ", courseName='" + getCourseName() + '\'' +
+                ", Program ='" + getProgram();
     }
 }

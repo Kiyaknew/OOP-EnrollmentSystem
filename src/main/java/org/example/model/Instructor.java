@@ -11,6 +11,7 @@ public class Instructor extends Person{
         this.students = students;
     }
 
+
     public List<Course> displayCourseList(){
         return courseList.stream().toList();
     }
