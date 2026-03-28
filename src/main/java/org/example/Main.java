@@ -3,6 +3,8 @@ import org.example.model.Person;
 import org.example.model.Instructor;
 import org.example.model.Student;
 import org.example.model.Course;
+import org.example.service.StudentRegistration;
+import org.example.service.StudentRegistrationImplement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,8 @@ public class Main {
         student.mainTask();
 
         instructor.facultyTask();
+
+        StudentRegistration studentRegistration = new StudentRegistrationImplement();
 
     }
 
