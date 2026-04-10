@@ -32,20 +32,18 @@ public class Student extends Person{
         this.program = program;
     }
 
-    public void mainTask(){
+    @Override
+    public void mainTask() {
         System.out.println("I study.");
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentID ='" + super.getId() + '\'' +
-                ", studentName ='" + super.getName() + '\'' +
-                ", studentAge = '" + super.getAge() + '\'' +
-                ", program = '" + program + '\'' +
+                "studentID='" + super.getId() + '\'' +
+                ", studentName='" + super.getName() + '\'' +
+                ", studentAge= '" + super.getAge() + '\'' +
+                ", program='" + program + '\'' +
                 '}';
     }
 }
-    public void mainTask(){
-    System.out.println("Study");
-    }
