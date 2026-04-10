@@ -1,16 +1,26 @@
 package org.example.model;
 
-public class Student extends Person {
+public class Student extends Person{
     private String program;
 
     public Student(){
+        super();
     }
 
-    public Student(int id, String name){
-        super(id, name);
+    public Student(String studentID){
+        super(studentID);
     }
 
-    public Student(int id, String name, String program){
+    public Student(String studentID, String studentName){
+        super(studentID, studentName);
+    }
+
+    public Student(String studentID, String studentName, int studentAge){
+        super(studentID, studentName, studentAge);
+    }
+
+    public Student(String studentID, String studentName, int studentAge, String program){
+        super(studentID, studentName, studentAge);
         this.program = program;
     }
 
@@ -21,7 +31,19 @@ public class Student extends Person {
     public void setProgram(String program){
         this.program = program;
     }
-}
-    public void mainTask(){
-    System.out.println("Study");
+
+    @Override
+    public void mainTask() {
+        System.out.println("I study.");
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentID='" + super.getId() + '\'' +
+                ", studentName='" + super.getName() + '\'' +
+                ", studentAge= '" + super.getAge() + '\'' +
+                ", program='" + program + '\'' +
+                '}';
+    }
+}

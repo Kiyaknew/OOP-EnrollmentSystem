@@ -1,7 +1,7 @@
 package org.example.model;
 
 public class Course{
-    private int courseID;
+    private String courseID;
     private String courseName;
     private String program;
 
@@ -9,17 +9,21 @@ public class Course{
 
     }
 
-    public Course( int courseID, String courseName, String program){
+    public Course(String courseID){
+        this.courseID = courseID;
+    }
+
+    public Course( String courseID, String courseName, String program){
         this.courseID = courseID;
         this.courseName = courseName;
         this.program = program;
     }
 
-    public int getCourseID(){
+    public String getCourseID(){
         return courseID;
     }
 
-    public void setCourseID(int courseID){
+    public void setCourseID(String courseID){
         this.courseID = courseID;
     }
 
@@ -31,11 +35,20 @@ public class Course{
         this.courseName = courseName;
     }
 
-    public String getCourse(){
+    public String getProgram(){
         return program;
     }
 
-    public void setCourse(String course){
+    public void setProgram(String program){
         this.program = program;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID = '" + courseID + '\'' +
+                ", courseName = '" + courseName + '\'' +
+                ", program = '" + program + '\'' +
+                '}';
     }
 }
