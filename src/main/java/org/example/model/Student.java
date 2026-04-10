@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Student extends Person {
+public class Student extends Person{
     private String program;
 
     public Student(){
@@ -46,3 +46,6 @@ public class Student extends Person {
                 '}';
     }
 }
+    public void mainTask(){
+    System.out.println("Study");
+    }
