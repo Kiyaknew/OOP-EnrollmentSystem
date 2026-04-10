@@ -9,6 +9,10 @@ public class Course{
 
     }
 
+    public Course(String courseID){
+        this.courseID = courseID;
+    }
+
     public Course( String courseID, String courseName, String program){
         this.courseID = courseID;
         this.courseName = courseName;
@@ -42,8 +46,9 @@ public class Course{
     @Override
     public String toString() {
         return "Course{" +
-                "courseID=" + getCourseID() +
-                ", courseName='" + getCourseName() + '\'' +
-                ", Program ='" + getProgram();
+                "courseID = '" + courseID + '\'' +
+                ", courseName = '" + courseName + '\'' +
+                ", program = '" + program + '\'' +
+                '}';
     }
 }

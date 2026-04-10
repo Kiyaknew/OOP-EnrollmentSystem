@@ -4,14 +4,23 @@ public class Student extends Person {
     private String program;
 
     public Student(){
-
+        super();
     }
 
-    public Student(int id, String name, int age){
-        super(id, name, age);
+    public Student(String studentID){
+        super(studentID);
     }
 
-    public Student(int id, String name, int age,  String program){
+    public Student(String studentID, String studentName){
+        super(studentID, studentName);
+    }
+
+    public Student(String studentID, String studentName, int studentAge){
+        super(studentID, studentName, studentAge);
+    }
+
+    public Student(String studentID, String studentName, int studentAge, String program){
+        super(studentID, studentName, studentAge);
         this.program = program;
     }
 
@@ -24,15 +33,15 @@ public class Student extends Person {
     }
 
     public void mainTask(){
-        System.out.println("Study");
+        System.out.println("I study.");
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentID=" + getId() +
-                ", studentName='" + getName() + '\'' +
-                ", studentAge='" + getAge() + '\'' +
-                ", studentProgram ='" + getProgram();
+                "studentID ='" + super.getId() + '\'' +
+                ", studentName ='" + super.getName() + '\'' +
+                ", program = '" + program + '\'' +
+                '}';
     }
 }

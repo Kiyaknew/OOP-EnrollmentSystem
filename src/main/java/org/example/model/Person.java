@@ -1,36 +1,36 @@
 package org.example.model;
 
 public abstract class Person {
-    private int id;
+    private String id;
     private String name;
     private int age;
+
     public Person(){
-        this(0);
+        this("Unknown");
 
     }
 
-    public Person(int id) {
-        this( id,"Unknown");
-        this.id = id;
+    public Person(String id){
+        this(id, "Unknown");
     }
 
-    public Person(int id, String name){
+    public Person(String id, String name){
         this(id, name, 0);
-        this.id = id;
-        this.name = name;
+
     }
 
-    public Person(int id, String name, int age){
+    public Person(String id, String name, int age){
         this.id = id;
         this.name = name;
         this.age = age;
+
     }
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
 
@@ -42,12 +42,13 @@ public abstract class Person {
         this.name = name;
     }
 
-    public int getAge() {
+    public int getAge(){
         return age;
     }
 
-    public void setAge(int age){
+    public void setAge(){
         this.age = age;
     }
 
+    public abstract void mainTask();
 }
