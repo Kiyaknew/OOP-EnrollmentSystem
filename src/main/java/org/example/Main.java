@@ -52,6 +52,7 @@ public class Main {
 
                         System.out.println("Enter Student Age: ");
                         int studAge = sc.nextInt();
+                        sc.nextLine();
 
                         System.out.println("Enter Program: ");
                         String studProgram = sc.nextLine();

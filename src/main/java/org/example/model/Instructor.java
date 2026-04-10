@@ -44,6 +44,7 @@ public class Instructor extends Person{
         return "Instructor{" +
                 "instructorID =" + super.getId() +
                 "instructorName =" + super.getName() +
+                "instructorAge =" + super.getAge() +
                 "course ='" + course + '\'' +
                 '}';
     }

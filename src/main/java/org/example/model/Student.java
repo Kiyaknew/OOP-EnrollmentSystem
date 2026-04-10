@@ -41,6 +41,7 @@ public class Student extends Person {
         return "Student{" +
                 "studentID ='" + super.getId() + '\'' +
                 ", studentName ='" + super.getName() + '\'' +
+                ", studentAge = '" + super.getAge() + '\'' +
                 ", program = '" + program + '\'' +
                 '}';
     }
