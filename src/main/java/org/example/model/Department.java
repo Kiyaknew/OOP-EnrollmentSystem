@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    private String id;
+    private String depId;
     private String departmentName;
     private List<Instructor> instructorList;
 
@@ -12,19 +12,19 @@ public class Department {
 
     }
 
-    public Department(String id, String departmentName, List<Instructor> instructorList){
-        this.id = id;
+    public Department(String depId, String departmentName, List<Instructor> instructorList){
+        this.depId = depId;
         this.departmentName = departmentName;
         this.instructorList = instructorList;
 
     }
 
-    public String getId(){
-        return id;
+    public String getdepId(){
+        return depId;
     }
 
-    public void setId(String id){
-        this.id = id;
+    public void setdepId(String depId){
+        this.depId = depId;
     }
 
     public String getDepartmentName(){
