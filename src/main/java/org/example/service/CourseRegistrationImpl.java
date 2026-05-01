@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CourseRegistrationImpl implements CourseRegistration{
-    static Scanner sc = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     private ArrayList<Course> courseList = new ArrayList<>();
 
     public void saveCourse(Course course){
@@ -21,10 +21,10 @@ public class CourseRegistrationImpl implements CourseRegistration{
         for(int i = 0; i<courseList.size(); i++){
             if(courseList.get(i).getCourseID().equals(course.getCourseID())){
                 System.out.println("Enter name: ");
-                String name = sc.nextLine();
+                String name = input.nextLine();
 
                 System.out.println("Enter program: ");
-                String program = sc.nextLine();
+                String program = input.nextLine();
 
                 courseList.set(i, new Course(course.getCourseID(), name, program));
                 break;
