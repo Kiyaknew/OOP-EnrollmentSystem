@@ -41,4 +41,13 @@ public class CourseRegistrationImpl implements CourseRegistration{
         }
         return "Error.";
     }
+
+    public Course searchCourse(String courseId){
+        for (Course course : courseList) {
+            if (course.getCourseID().equals(courseId)){
+                return course;
+            }
+        }
+        return null;
+    }
 }

@@ -7,6 +7,7 @@ public class Instructor extends Person{
 
     public Instructor(){
         super();
+        this.courseList = new ArrayList<>();
     }
 
     public Instructor(String instructorID){
@@ -16,17 +17,17 @@ public class Instructor extends Person{
 
     public Instructor(String instructorID, String instructorName){
         super(instructorID, instructorName);
-        this.courseList = courseList;
+        this.courseList = new ArrayList<>();
     }
 
     public Instructor(String instructorID, String instructorName, int instructorAge){
         super(instructorID, instructorName,instructorAge);
-        this.courseList = courseList;
+        this.courseList = new ArrayList<>();;
     }
 
-    public Instructor(String instructorID, String instructorName, int instructorAge, String course){
+    public Instructor(String instructorID, String instructorName, int instructorAge, List<Course> courseList){
         super(instructorID, instructorName, instructorAge);
-        this.courseList = courseList;
+        this.courseList = courseList != null ? courseList: new ArrayList<>();
     }
 
     public List<Course> getCourse(){
@@ -46,10 +47,10 @@ public class Instructor extends Person{
     public String toString() {
         String courseDisplay = courseList.isEmpty() ? "No assigned courses" : courseList.toString();
         return "Instructor{" +
-                "instructorID =" + super.getId() +
-                "instructorName =" + super.getName() +
-                "instructorAge =" + super.getAge() +
-                "course ='" + courseList + '\'' +
+                "instructorID=" + super.getId() +
+                ", instructorName=" + super.getName() +
+                ", instructorAge=" + super.getAge() +
+                ", course='" + courseDisplay + '\'' +
                 '}';
     }
 }
