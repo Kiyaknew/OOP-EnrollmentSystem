@@ -73,12 +73,12 @@ public class CampusRegistrar {
 
     public String assignCourse(Instructor instructor){
         instructorReg.addCourseInstructor(instructor);
-        return "Succesfully added course to instructor.";
+        return "Successfully added course to instructor.";
     }
 
     public String removeInstructor(Instructor instructor){
         instructorReg.removeInstructor(instructor);
-        return "Successfully removed " + instructor + "from the records.";
+        return "Successfully removed instructor from the records.";
     }
 
 
