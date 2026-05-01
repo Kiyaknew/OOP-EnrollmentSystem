@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DepartmentRegistrationImp implements DepartmentReg{
-    static Scanner sc = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     private ArrayList<Department> departmentList = new ArrayList<>();
     List<Instructor> instructors = new ArrayList<>();
 
@@ -24,14 +24,15 @@ public class DepartmentRegistrationImp implements DepartmentReg{
         for(int i = 0; i<departmentList.size(); i++){
             if(departmentList.get(i).getdepId().equals(department.getdepId())){
                 System.out.println("Enter Department Name: ");
-                String depName = sc.nextLine();
+                String depName = input.nextLine();
 
+                System.out.println("----------------------------------------------");
                 System.out.println("Enter instructor:");
-                String instructor = sc.nextLine();
+                String instructor = input.nextLine();
 
-                instructors.add(instructor);
 
-                departmentList.set(i, new Department(department.getdepId(), depName, instructors );
+
+                departmentList.set(i, new Department(department.getdepId(), depName, instructors ));
                 break;
             }
         }

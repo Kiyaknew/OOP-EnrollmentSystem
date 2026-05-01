@@ -6,28 +6,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentRegistrationImp implements StudentRegistration{
-    static Scanner sc = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     private ArrayList<Student> studentList = new ArrayList<>();
 
     public void saveStudent(Student student){
         studentList.add(student);
     }
 
-    public void displayAllStudent(){
-        System.out.println(studentList);
+    public void displayAllStudent() {
+        System.out.println("---------------------------STUDENT LISTS---------------------------");
+        for (int k = 0; k < studentList.size(); k++) {
+            System.out.println((k+1) + ". " + studentList.get(k));
+
+        }
+        System.out.println("-------------------------------------------------------------------");
     }
 
     public void updateStudent(Student student){
         for(int i = 0; i< studentList.size(); i++){
             if(studentList.get(i).getId().equals(student.getId())){
                 System.out.println("Enter name: ");
-                String name = sc.nextLine();
+                String name = input.nextLine();
 
                 System.out.println("Enter age: ");
-                int age = sc.nextInt();
+                int age = input.nextInt();
 
+                input.nextLine();
                 System.out.println("Enter program: ");
-                String program = sc.nextLine();
+                String program = input.nextLine();
 
                 studentList.set(i, new Student(student.getId(), name, age,  program));
                 break;

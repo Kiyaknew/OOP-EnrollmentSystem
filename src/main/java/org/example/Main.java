@@ -8,7 +8,7 @@ import org.example.service.StudentRegistrationImp;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner sc = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         Student student = new Student();
         student.mainTask();
@@ -29,7 +29,7 @@ public class Main {
                     "3. Exit\n" +
                     "Answer: ");
 
-            int num1 = sc.nextInt();
+            int num1 = input.nextInt();
 
             if (num1 == 1){
                 System.out.print("\nStudent Registration:\n" +
@@ -39,23 +39,23 @@ public class Main {
                         "3. Update Student\n" +
                         "4. Remove Student\n" +
                         "Answer: ");
-                int srNum = sc.nextInt();
-                sc.nextLine();
+                int srNum = input.nextInt();
+                input.nextLine();
                 switch(srNum){
                     case 1:
                         System.out.println("\nSave Student.");
                         System.out.println("Enter Student ID: ");
-                        String studID = sc.nextLine();
+                        String studID = input.nextLine();
 
                         System.out.println("Enter Student Name: ");
-                        String studName = sc.nextLine();
+                        String studName = input.nextLine();
 
                         System.out.println("Enter Student Age: ");
-                        int studAge = sc.nextInt();
-                        sc.nextLine();
+                        int studAge = input.nextInt();
+                        input.nextLine();
 
                         System.out.println("Enter Program: ");
-                        String studProgram = sc.nextLine();
+                        String studProgram = input.nextLine();
 
                         campusRegistrar.saveStudent(new Student(studID, studName, studAge, studProgram));
                         break;
@@ -66,9 +66,9 @@ public class Main {
 
                     case 3:
                         campusRegistrar.displayAllStudent();
-                        System.out.println("Update Student.");
+                        System.out.println("Search Student to Update");
                         System.out.println("Enter Student ID: ");
-                        String newStudID = sc.nextLine();
+                        String newStudID = input.nextLine();
                         campusRegistrar.updateStudent(new Student(newStudID));
                         break;
 
@@ -76,7 +76,7 @@ public class Main {
                         campusRegistrar.displayAllStudent();
                         System.out.println("Remove Student.");
                         System.out.println("Enter Student ID: ");
-                        String delStudID = sc.nextLine();
+                        String delStudID = input.nextLine();
                         System.out.println(campusRegistrar.removeStudent(new Student(delStudID)));
                         break;
 
@@ -95,19 +95,19 @@ public class Main {
                         "3. Update Course\n" +
                         "4. Remove Course\n" +
                         "Answer: ");
-                int crNum = sc.nextInt();
-                sc.nextLine();
+                int crNum = input.nextInt();
+                input.nextLine();
                 switch(crNum){
                     case 1:
                         System.out.println("\nSave Course.");
                         System.out.println("Enter Course ID: ");
-                        String courseID = sc.nextLine();
+                        String courseID = input.nextLine();
 
                         System.out.println("Enter Course Name: ");
-                        String courseName = sc.nextLine();
+                        String courseName = input.nextLine();
 
                         System.out.println("Enter Program: ");
-                        String courseProgram = sc.nextLine();
+                        String courseProgram = input.nextLine();
 
                         campusRegistrar.saveCourse(new Course(courseID, courseName, courseProgram));
                         break;
@@ -120,7 +120,7 @@ public class Main {
                         campusRegistrar.displayAllCourse();
                         System.out.println("Update Course.");
                         System.out.println("Enter Course ID: ");
-                        String newCourseID = sc.nextLine();
+                        String newCourseID = input.nextLine();
                         campusRegistrar.updateCourse(new Course(newCourseID));
                         break;
 
@@ -128,7 +128,7 @@ public class Main {
                         campusRegistrar.displayAllCourse();
                         System.out.println("Remove Course.");
                         System.out.println("Enter Course ID: ");
-                        String delCourseID = sc.nextLine();
+                        String delCourseID = input.nextLine();
                         System.out.println(campusRegistrar.removeCourse(new Course(delCourseID)));
                         break;
 
