@@ -23,30 +23,38 @@ public class Main {
 
         //interactive
         while (true){
-            System.out.print("\nPick a number.\n" +
-                    "1. Student Registration\n" +
-                    "2. Course Registration\n" +
+            System.out.print("\n---DLSL Enrollment and Management System---\n" +
+                    "1. Campus Management\n" +
+                    "2. Enroll Student" +
+                    "3. Assign Instructor\n" +
                     "3. Exit\n" +
-                    "Answer: ");
+                    "Choice: ");
 
-            int num1 = input.nextInt();
+            int choice1 = input.nextInt();
 
-            if (num1 == 1){
-                System.out.print("\nStudent Registration:\n" +
-                        "Pick a number.\n" +
-                        "1. Save Student\n" +
-                        "2. Display Student\n" +
-                        "3. Update Student\n" +
-                        "4. Remove Student\n" +
+            if (choice1 == 1){
+                System.out.print("\n---Campus Management---\n" +
+                        "1. Instructor Management\n" +
+                        "2. Student Management\n" +
+                        "3. Course Management\n" +
+                        "4. Section Management\n" +
+                        "5. Department Management\n" +
                         "Answer: ");
                 int srNum = input.nextInt();
                 input.nextLine();
                 switch(srNum){
                     case 1:
-                        System.out.println("\nSave Student.");
-                        System.out.println("Enter Student ID: ");
-                        String studID = input.nextLine();
+                        System.out.println("\n---Management: INSTRUCTOR---");
+                        System.out.println("1. CREATE Instructor\n" +
+                                           "2. DISPLAY Instructors\n" +
+                                           "3. UPDATE Instructor\n" +
+                                           "4. DELETE Instructor\n"
+                                );
+                        int instchoice = input.nextInt();
 
+                        if (instchoice == 1){
+                            System.out.println
+                        }
                         System.out.println("Enter Student Name: ");
                         String studName = input.nextLine();
 
@@ -87,7 +95,7 @@ public class Main {
 
 
 
-            } else if (num1 == 2){
+            } else if ( choice1 == 2){
                 System.out.print("\nCourse Registration:\n" +
                         "Pick a number.\n" +
                         "1. Save Course\n" +
@@ -138,7 +146,7 @@ public class Main {
                 }
 
 
-            } else if (num1 == 3){
+            } else if (choice1 == 3){
                 System.exit(0);
 
 

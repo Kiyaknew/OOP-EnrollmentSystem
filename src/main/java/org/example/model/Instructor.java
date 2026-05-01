@@ -1,7 +1,9 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
 public class Instructor extends Person{
-    private String course;
+    private List<Course> courseList;
 
     public Instructor(){
         super();
@@ -9,29 +11,30 @@ public class Instructor extends Person{
 
     public Instructor(String instructorID){
         super(instructorID);
-
+        this.courseList = new ArrayList<>();
     }
 
     public Instructor(String instructorID, String instructorName){
         super(instructorID, instructorName);
-
+        this.courseList = courseList;
     }
 
     public Instructor(String instructorID, String instructorName, int instructorAge){
         super(instructorID, instructorName,instructorAge);
+        this.courseList = courseList;
     }
 
     public Instructor(String instructorID, String instructorName, int instructorAge, String course){
         super(instructorID, instructorName, instructorAge);
-        this.course = course;
+        this.courseList = courseList;
     }
 
-    public String getCourse(){
-        return course;
+    public List<Course> getCourse(){
+        return courseList;
     }
 
-    public void setCourse(String course){
-        this.course = course;
+    public void setCourse(List<Course> courseList){
+        this.courseList = courseList;
     }
 
     @Override
@@ -41,11 +44,12 @@ public class Instructor extends Person{
 
     @Override
     public String toString() {
+        String courseDisplay = courseList.isEmpty() ? "No assigned courses" : courseList.toString();
         return "Instructor{" +
                 "instructorID =" + super.getId() +
                 "instructorName =" + super.getName() +
                 "instructorAge =" + super.getAge() +
-                "course ='" + course + '\'' +
+                "course ='" + courseList + '\'' +
                 '}';
     }
 }
