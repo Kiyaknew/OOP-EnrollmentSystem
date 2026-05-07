@@ -67,6 +67,10 @@ public class Section {
         this.assignedInstructor = assignedInstructor;
     }
 
+    public List<Student> getEnrolledList(){
+        return enrolledList;
+    }
+
 
 }
 
