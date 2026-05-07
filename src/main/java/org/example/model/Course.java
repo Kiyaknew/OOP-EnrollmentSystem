@@ -4,6 +4,7 @@ public class Course{
     private String courseID;
     private String courseName;
     private String program;
+    private int courseUnits;
 
     public Course(){
 
@@ -13,10 +14,11 @@ public class Course{
         this.courseID = courseID;
     }
 
-    public Course( String courseID, String courseName, String program){
+    public Course( String courseID, String courseName, String program, int courseUnits){
         this.courseID = courseID;
         this.courseName = courseName;
         this.program = program;
+        this.courseUnits = courseUnits;
     }
 
     public String getCourseID(){
@@ -43,12 +45,22 @@ public class Course{
         this.program = program;
     }
 
+    public int getCourseUnits(){
+        return courseUnits;
+    }
+
+    public void setCourseUnits(int courseUnits){
+        this.courseUnits = courseUnits;
+    }
+
+
     @Override
     public String toString() {
-        return "Course{" +
-                "courseID = '" + courseID + '\'' +
-                ", courseName = '" + courseName + '\'' +
-                ", program = '" + program + '\'' +
+        return "Course{ " +
+                "Course ID = '" + courseID + '\'' +
+                ", Course Name = '" + courseName + '\'' +
+                ", Program = '" + program + '\'' +
+                ", Units = '" + courseUnits + '\'' +
                 '}';
     }
 }
