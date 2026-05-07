@@ -2,14 +2,17 @@ package org.example.service;
 
 import org.example.model.Course;
 import org.example.model.Student;
+import org.example.model.Instructor;
 
 public class CampusRegistrar {
     private StudentRegistration studentReg;
     private CourseRegistration courseReg;
+    private InstructorRegistration instructorReg;
 
-    public CampusRegistrar(StudentRegistration studentReg, CourseRegistration courseReg){
+    public CampusRegistrar(StudentRegistration studentReg, CourseRegistration courseReg, InstructorRegistration instructorReg){
         this.studentReg = studentReg;
         this.courseReg = courseReg;
+        this.instructorReg = instructorReg;
 
     }
 
@@ -52,4 +55,31 @@ public class CampusRegistrar {
         courseReg.removeCourse(course);
         return "Successfully removed " + course;
     }
+
+    public String saveInstructor(Instructor instructor){
+        instructorReg.saveInstructor(instructor);
+        return "Successfully saved " + instructor + "as an instructor.";
+    }
+
+    public String displayAllInstructor(){
+        instructorReg.displayAllInstructor();
+        return "All records displayed.";
+    }
+
+    public String updateInstructor(Instructor instructor){
+        instructorReg.updateInstructor(instructor);
+        return "Successfully updated " + instructor + "information.";
+    }
+
+    public String assignCourse(Instructor instructor){
+        instructorReg.addCourseInstructor(instructor);
+        return "Successfully added course to instructor.";
+    }
+
+    public String removeInstructor(Instructor instructor){
+        instructorReg.removeInstructor(instructor);
+        return "Successfully removed instructor from the records.";
+    }
+
+
 }

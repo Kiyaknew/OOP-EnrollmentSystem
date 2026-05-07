@@ -14,7 +14,12 @@ public class CourseRegistrationImpl implements CourseRegistration{
     }
 
     public void displayAllCourse(){
-        System.out.println(courseList);
+        System.out.println("---------------------------COURSE LIST---------------------------");
+        for (int k = 0; k < courseList.size(); k++) {
+            System.out.println((k+1) + ". " + courseList.get(k));
+
+        }
+        System.out.println("-------------------------------------------------------------------");
     }
 
     public void updateCourse(Course course){
@@ -40,5 +45,14 @@ public class CourseRegistrationImpl implements CourseRegistration{
             }
         }
         return "Error.";
+    }
+
+    public Course searchCourse(String courseId){
+        for (Course course : courseList) {
+            if (course.getCourseID().equals(courseId)){
+                return course;
+            }
+        }
+        return null;
     }
 }
