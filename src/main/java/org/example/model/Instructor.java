@@ -3,7 +3,7 @@ package org.example.model;
 import java.util.ArrayList;
 import java.util.List;
 public class Instructor extends Person{
-    private List<Course> courseList;
+    private List<String> courseList;
 
     public Instructor(){
         super();
@@ -25,16 +25,12 @@ public class Instructor extends Person{
         this.courseList = new ArrayList<>();;
     }
 
-    public Instructor(String instructorID, String instructorName, int instructorAge, List<Course> courseList){
-        super(instructorID, instructorName, instructorAge);
-        this.courseList = courseList != null ? courseList: new ArrayList<>();
-    }
 
-    public List<Course> getCourse(){
+    public List<String> getCourseList(){
         return courseList;
     }
 
-    public void setCourse(List<Course> courseList){
+    public void setCourseList(List<String> courseList){
         this.courseList = courseList;
     }
 
@@ -45,12 +41,11 @@ public class Instructor extends Person{
 
     @Override
     public String toString() {
-        String courseDisplay = courseList.isEmpty() ? "No assigned courses" : courseList.toString();
         return "Instructor{" +
-                "instructorID=" + super.getId() +
-                ", instructorName=" + super.getName() +
-                ", instructorAge=" + super.getAge() +
-                ", course='" + courseDisplay + '\'' +
+                "Instructor ID=" + super.getId() +
+                ",Name=" + super.getName() +
+                ",Age=" + super.getAge() +
+                ",Course='" + courseList + '\'' +
                 '}';
     }
 }
