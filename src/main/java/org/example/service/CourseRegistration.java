@@ -7,5 +7,5 @@ public interface CourseRegistration {
     void displayAllCourse();
     void updateCourse(Course course);
     String removeCourse(Course course);
-    Course searchCourse(String courseID);
+    Course findCourseByID(String courseID);
 }

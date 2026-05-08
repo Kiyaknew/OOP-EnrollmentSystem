@@ -31,7 +31,10 @@ public class CourseRegistrationImpl implements CourseRegistration{
                 System.out.println("Enter program: ");
                 String program = input.nextLine();
 
-                courseList.set(i, new Course(course.getCourseID(), name, program));
+                System.out.print("Enter units: ");
+                int units = input.nextInt();
+
+                courseList.set(i, new Course(course.getCourseID(), name, program, units));
                 break;
             }
         }
@@ -47,10 +50,10 @@ public class CourseRegistrationImpl implements CourseRegistration{
         return "Error.";
     }
 
-    public Course searchCourse(String courseId){
-        for (Course course : courseList) {
-            if (course.getCourseID().equals(courseId)){
-                return course;
+    public Course findCourseByID(String courseId){
+        for (int i = 0; courseList.size() > i; i++) {
+            if (courseList.get(i).getCourseID().equals(courseId)){
+                return courseList.get(i);
             }
         }
         return null;
