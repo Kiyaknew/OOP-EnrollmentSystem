@@ -7,4 +7,5 @@ public interface StudentRegistration {
     void displayAllStudent();
     void updateStudent(Student student);
     String removeStudent(Student student);
+    Student findStudentByID(String studentID);
 }
