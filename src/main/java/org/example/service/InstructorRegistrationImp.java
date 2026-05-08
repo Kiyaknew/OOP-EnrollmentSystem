@@ -2,17 +2,14 @@ package org.example.service;
 
 import org.example.model.Instructor;
 import org.example.model.Course;
+import org.example.model.Section;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InstructorRegistrationImp implements InstructorRegistration {
     static Scanner input = new Scanner(System.in);
-    private ArrayList<Instructor> instructorList = new ArrayList<>();
-    private CourseRegistrationImpl courseRegistration;
-
-    public InstructorRegistrationImp(CourseRegistrationImpl courseRegistration) {
-        this.courseRegistration = courseRegistration;
-    }
+    private List<Instructor> instructorList = new ArrayList<>();
 
     public void saveInstructor(Instructor instructor) {
         instructorList.add(instructor);
@@ -38,6 +35,8 @@ public class InstructorRegistrationImp implements InstructorRegistration {
                 int age = input.nextInt();
 
                 Instructor updatedInstructor = new Instructor(instructor.getId(), name, age);
+                updatedInstructor.setCourseList(instructorList.get(i).getCourseList());
+                instructorList.set(i, updatedInstructor);
 
             }
         }
@@ -62,6 +61,33 @@ public class InstructorRegistrationImp implements InstructorRegistration {
           System.out.println("Instructor not found.");
           return;
       }
+      Course course = courseReg.findCourseByID(courseID);
+      if(course == null){
+          System.out.println("Course not found.");
+          return;
+      }
+      for (int i = 0; i < instructor.getCourseList().size(); i++){
+          if(instructor.getCourseList().get(i).getCourseID().equals(courseID)){
+              System.out.println("Course already assigned to the instructor!");
+              return;
+          }
+      }
+      instructor.getCourseList().add(course);
+      System.out.println("Assined course to instructor.");
+
+    }
+
+    public void assignInstructorToSection(String instructorID, String sectionID){
+
+    }
+
+    public Instructor findInstructorbyID(String instructorID){
+        for(int i = 0; instructorList.size() > i; i++){
+            if(instructorList.get(i).getId().equals(instructorID)) {
+                return instructorList.get(i);
+            }
+        }
+        return null;
     }
 }
 
