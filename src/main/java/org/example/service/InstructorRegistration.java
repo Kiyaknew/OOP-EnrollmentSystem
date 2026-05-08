@@ -8,4 +8,6 @@ public interface InstructorRegistration {
     void displayAllInstructor();
     void updateInstructor(Instructor instructor);
     String removeInstructor(Instructor instructor);
+    void addCourseInstructor(String instructorID, String courseID, CourseRegistration courseReg);
+    void assignInstructorToSection(String instructorID, String sectionID, SectionRegistration sectionReg);
 }
