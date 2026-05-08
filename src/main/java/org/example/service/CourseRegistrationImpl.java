@@ -1,13 +1,13 @@
 package org.example.service;
 
 import org.example.model.Course;
-
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CourseRegistrationImpl implements CourseRegistration{
     static Scanner input = new Scanner(System.in);
-    private ArrayList<Course> courseList = new ArrayList<>();
+    private List<Course> courseList = new ArrayList<>();
 
     public void saveCourse(Course course){
         courseList.add(course);
