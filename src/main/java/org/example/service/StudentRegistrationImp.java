@@ -5,11 +5,11 @@ import org.example.model.Student;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StudentRegistrationImp implements StudentRegistration{
+public class StudentRegistrationImp implements StudentRegistration {
     static Scanner input = new Scanner(System.in);
     private ArrayList<Student> studentList = new ArrayList<>();
 
-    public void saveStudent(Student student){
+    public void saveStudent(Student student) {
         studentList.add(student);
         System.out.println(student.getName() + " added to the system.");
     }
@@ -17,15 +17,15 @@ public class StudentRegistrationImp implements StudentRegistration{
     public void displayAllStudent() {
         System.out.println("---------------------------STUDENT LISTS---------------------------");
         for (int k = 0; k < studentList.size(); k++) {
-            System.out.println((k+1) + ". " + studentList.get(k));
+            System.out.println((k + 1) + ". " + studentList.get(k));
 
         }
         System.out.println("-------------------------------------------------------------------");
     }
 
-    public void updateStudent(Student student){
-        for(int i = 0; i< studentList.size(); i++){
-            if(studentList.get(i).getId().equals(student.getId())){
+    public void updateStudent(Student student) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getId().equals(student.getId())) {
                 System.out.println("Enter name: ");
                 String name = input.nextLine();
 
@@ -36,22 +36,29 @@ public class StudentRegistrationImp implements StudentRegistration{
                 System.out.println("Enter program: ");
                 String program = input.nextLine();
 
-                studentList.set(i, new Student(student.getId(), name, age,  program));
+                studentList.set(i, new Student(student.getId(), name, age, program));
                 System.out.println("Student successfully updated.");
                 break;
             }
         }
     }
 
-    public String removeStudent(Student student){
-        for(int i = 0; i< studentList.size(); i++){
-            if(studentList.get(i).getId().equals(student.getId())){
+    public String removeStudent(Student student) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getId().equals(student.getId())) {
                 studentList.remove(i);
                 return "Successfully Deleted.";
             }
         }
         return "Error.";
     }
-//might add more method for enrollment
 
+    public Student findStudentByID(String studentID) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getId().equals(studentID)) {
+               return studentList.get(i);
+            }
+        }
+        return null;
+    }
 }
