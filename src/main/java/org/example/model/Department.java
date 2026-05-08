@@ -19,11 +19,11 @@ public class Department {
 
     }
 
-    public String getdepId(){
+    public String getDepId(){
         return depId;
     }
 
-    public void setdepId(String depId){
+    public void setDepId(String depId){
         this.depId = depId;
     }
 
