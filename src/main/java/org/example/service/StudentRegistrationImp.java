@@ -37,6 +37,7 @@ public class StudentRegistrationImp implements StudentRegistration{
                 String program = input.nextLine();
 
                 studentList.set(i, new Student(student.getId(), name, age,  program));
+                System.out.println("Student successfully updated.");
                 break;
             }
         }
@@ -51,4 +52,6 @@ public class StudentRegistrationImp implements StudentRegistration{
         }
         return "Error.";
     }
+//might add more method for enrollment
+
 }
