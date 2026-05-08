@@ -11,6 +11,7 @@ public class StudentRegistrationImp implements StudentRegistration{
 
     public void saveStudent(Student student){
         studentList.add(student);
+        System.out.println(student.getName() + " added to the system.");
     }
 
     public void displayAllStudent() {
