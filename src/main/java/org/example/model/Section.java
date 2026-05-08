@@ -7,7 +7,7 @@ public class Section {
     private String sectionID;
     private String sectionName;
     private int maxCapacity;
-    private Course program;
+    private String program;
     private Instructor assignedInstructor;
     private List<Student> enrolledList; //dunno if this is correct, complete other entities first :/
 
@@ -19,7 +19,7 @@ public class Section {
         this.sectionID = sectionID;
     }
 
-    public Section(String sectionID, String sectionName, int maxCapacity, Course program){
+    public Section(String sectionID, String sectionName, int maxCapacity, String program){
         this.sectionID = sectionID;
         this.sectionName = sectionName;
         this.maxCapacity = maxCapacity;
@@ -51,11 +51,11 @@ public class Section {
         this.maxCapacity = maxCapacity;
     }
 
-    public Course getProgram(){
+    public String getProgram(){
         return program;
     }
 
-    public void setProgram(Course program){
+    public void setProgram(String program){
         this.program = program;
     }
 
@@ -71,6 +71,9 @@ public class Section {
         return enrolledList;
     }
 
+    public void setEnrolledList(List<Student> enrolledList){
+        this.enrolledList = enrolledList;
+    }
 
 }
 

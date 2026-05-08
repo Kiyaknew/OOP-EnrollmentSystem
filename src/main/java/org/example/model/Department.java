@@ -39,4 +39,8 @@ public class Department {
         return sections;
     }
 
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
+    }
+
 }
