@@ -6,16 +6,16 @@ import java.util.List;
 public class Department {
     private String depId;
     private String departmentName;
-    private List<Instructor> instructorList;
+    private List<Section> sections;
 
     public Department(){
 
     }
 
-    public Department(String depId, String departmentName, List<Instructor> instructorList){
+    public Department(String depId, String departmentName){
         this.depId = depId;
         this.departmentName = departmentName;
-        this.instructorList = instructorList;
+        this.sections = new ArrayList<>();
 
     }
 
@@ -33,6 +33,14 @@ public class Department {
 
     public void setDepartmentName(String departmentName){
         this.departmentName = departmentName;
+    }
+
+    public List<Section> getSections(){
+        return sections;
+    }
+
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
     }
 
 }
