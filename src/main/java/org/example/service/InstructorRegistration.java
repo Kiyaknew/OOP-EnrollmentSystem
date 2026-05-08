@@ -8,5 +8,4 @@ public interface InstructorRegistration {
     void displayAllInstructor();
     void updateInstructor(Instructor instructor);
     String removeInstructor(Instructor instructor);
-    void addCourseInstructor(Instructor instructor);
 }
