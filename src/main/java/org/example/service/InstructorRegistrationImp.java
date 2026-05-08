@@ -73,11 +73,23 @@ public class InstructorRegistrationImp implements InstructorRegistration {
           }
       }
       instructor.getCourseList().add(course);
-      System.out.println("Assined course to instructor.");
+      System.out.println("Assigned course to instructor.");
 
     }
 
-    public void assignInstructorToSection(String instructorID, String sectionID){
+    public void assignInstructorToSection(String instructorID, String sectionID, SectionRegistration sectionReg){
+        Instructor instructor = findInstructorbyID(instructorID);
+        if (instructor == null){
+            System.out.println("Instructor not found.");
+            return;
+        }
+        Section section = sectionReg.findSectionByID(sectionID);
+        if (section == null){
+            System.out.println("Section not found");
+            return;
+        }
+        section.setAssignedInstructor(instructor);
+        System.out.println("Assigned instructor to section.");
 
     }
 
