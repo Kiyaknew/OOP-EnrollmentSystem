@@ -1,21 +1,29 @@
 package org.example.service;
 
-import org.example.model.Course;
-import org.example.model.Student;
-import org.example.model.Instructor;
+import org.example.model.*;
 
 public class CampusRegistrar {
     private StudentRegistration studentReg;
     private CourseRegistration courseReg;
     private InstructorRegistration instructorReg;
+    private SectionRegistration sectionReg;
+    private DepartmentRegistration departmentReg;
+    private EnrollmentRegistration enrollmentReg;
+    private TuitionRegistration tuitionReg;
 
-    public CampusRegistrar(StudentRegistration studentReg, CourseRegistration courseReg, InstructorRegistration instructorReg){
+    public CampusRegistrar(StudentRegistration studentReg, CourseRegistration courseReg, InstructorRegistration instructorReg, SectionRegistration sectionReg,
+                           DepartmentRegistration departmentReg, EnrollmentRegistration enrollmentReg, TuitionRegistration tuitionReg ){
         this.studentReg = studentReg;
         this.courseReg = courseReg;
         this.instructorReg = instructorReg;
+        this.sectionReg = sectionReg;
+        this.departmentReg = departmentReg;
+        this.enrollmentReg = enrollmentReg;
+        this.tuitionReg = tuitionReg;
 
     }
 
+//THIS IS FOR ALL STUDENT ACTIONS!!!!!!!!!!!!!11111
     public String saveStudent(Student student){
         studentReg.saveStudent(student);
         return "Successfully registered " + student;
@@ -36,6 +44,7 @@ public class CampusRegistrar {
         return "Successfully removed " + student;
     }
 
+ //THIS IS FOR COURSE!!!!!!!!11
     public String saveCourse(Course course){
         courseReg.saveCourse(course);
         return "Successfully saved " + course;
@@ -56,6 +65,7 @@ public class CampusRegistrar {
         return "Successfully removed " + course;
     }
 
+//FOR INSTRUCTOR!!!!!!!!!!!!!!!!!!!!!!!1
     public String saveInstructor(Instructor instructor){
         instructorReg.saveInstructor(instructor);
         return "Successfully saved " + instructor + "as an instructor.";
