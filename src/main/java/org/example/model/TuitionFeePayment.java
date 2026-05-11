@@ -45,6 +45,14 @@ public class TuitionFeePayment {
         this.totalTuition = totalTuition;
     }
 
+    public Student getStudent(){
+        return  student;
+    }
+
+    public void setStudent(Student student){
+        this.student= student;
+    }
+
     @Override
     public String toString() {
         return "Tuition Details{ " +
