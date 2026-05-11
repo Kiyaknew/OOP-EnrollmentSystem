@@ -118,6 +118,41 @@ public class CampusRegistrar {
 
 //DEPARTMENT !!!!
 
+    public String saveDepartment(Department department){
+        departmentReg.saveDepartment(department);
+        return "Successfully saved department to the system";
+    }
+
+    public String displayAllDepartment(){
+        departmentReg.displayAllDepartment();
+        return "All records displayed.";
+    }
+
+    public String updateDepartment(Department department){
+        departmentReg.updateDepartment(department);
+        return "Successfully updated department information";
+    }
+
+    public String removeDepartment(String departmentID){
+        departmentReg.removeDepartment(departmentID);
+        return "Successfully removed department.";
+    }
+
+    public String addSectiontoDepartment(String departmentID, String sectionID){
+        Section section = sectionReg.findSectionByID(sectionID);
+        if (section == null){
+            return "Section not found.";
+        }
+        departmentReg.addSectiontoDepartment(departmentID, section);
+        return "Succesfully added section from department.";
+    }
+
+    public String removeSectionFromDepartment(String departmentID, String sectionID){
+        departmentReg.removeSectionFromDepartment(departmentID,sectionID);
+        return "Successfully removed section from department.";
+    }
+
+//FOR ENROLLMENT
 
 
 
