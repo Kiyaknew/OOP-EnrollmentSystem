@@ -12,6 +12,11 @@ public class Department {
 
     }
 
+    public Department(String depId){
+        this.depId = depId;
+        this.sections = new ArrayList<>();
+    }
+
     public Department(String depId, String departmentName){
         this.depId = depId;
         this.departmentName = departmentName;
@@ -41,6 +46,15 @@ public class Department {
 
     public void setSections(List<Section> sections) {
         this.sections = sections;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "ID='" + depId + '\'' +
+                ", Name='" + departmentName + '\'' +
+                ", Sections=" + sections.size() +
+                '}';
     }
 
 }

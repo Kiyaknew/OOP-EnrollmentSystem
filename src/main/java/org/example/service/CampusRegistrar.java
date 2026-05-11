@@ -96,6 +96,16 @@ public class CampusRegistrar {
         return "Redirecting . . .";
     }
 
+    public String removeInstructorFromSection(String sectionID) {
+        instructorReg.removeInstructorFromSection(sectionID, sectionReg);
+        return "Redirecting . . .";
+    }
+
+    public String removeCourseFromInstructor(String instructorID, String courseID) {
+        instructorReg.removeCourseFromInstructor(instructorID, courseID);
+        return "Redirecting . . .";
+    }
+
  //SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
 
     public String saveSection(Section section){
@@ -140,18 +150,22 @@ public class CampusRegistrar {
         return "Redirecting . . .";
     }
 
-    public String addSectiontoDepartment(String departmentID, String sectionID){
+    public String addSectiontoDepartment(String departmentID, String sectionID) {
+        Department dept = departmentReg.findDepartmentByID(departmentID);
+        if (dept == null) {
+            return "Department ID " + departmentID + " not found.";
+        }
         Section section = sectionReg.findSectionByID(sectionID);
-        if (section == null){
-            return "Section not found.";
+        if (section == null) {
+            return "Section ID " + sectionID + " not found.";
         }
         departmentReg.addSectiontoDepartment(departmentID, section);
-        return "Succesfully added section from department.";
+        return "Successfully added " + section.getSectionName() + " to " + dept.getDepartmentName();
     }
 
     public String removeSectionFromDepartment(String departmentID, String sectionID){
         departmentReg.removeSectionFromDepartment(departmentID,sectionID);
-        return "Successfully removed section from department.";
+        return "Redirecting . . .";
     }
 
 //FOR ENROLLMENT

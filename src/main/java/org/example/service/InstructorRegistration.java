@@ -10,4 +10,6 @@ public interface InstructorRegistration {
     void removeInstructor(Instructor instructor);
     void addCourseInstructor(String instructorID, String courseID, CourseRegistration courseReg);
     void assignInstructorToSection(String instructorID, String sectionID, SectionRegistration sectionReg);
+    void removeInstructorFromSection(String sectionID, SectionRegistration sectionReg);
+    void removeCourseFromInstructor(String instructorID, String courseID);
 }

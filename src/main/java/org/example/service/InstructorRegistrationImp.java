@@ -96,9 +96,50 @@ public class InstructorRegistrationImp implements InstructorRegistration {
             System.out.println("Section not found");
             return;
         }
+        if (section.getAssignedInstructor() != null) {
+            System.out.println("Section " + section.getSectionName() + " already has an instructor: " +
+                    section.getAssignedInstructor().getName() +
+                    ". Please remove the current instructor first.");
+            return;
+        }
         section.setAssignedInstructor(instructor);
         System.out.println("Assigned instructor to section.");
 
+    }
+    public void removeInstructorFromSection(String sectionID, SectionRegistration sectionReg) {
+        Section section = sectionReg.findSectionByID(sectionID);
+        if (section == null) {
+            System.out.println("Section not found.");
+            return;
+        }
+        if (section.getAssignedInstructor() == null) {
+            System.out.println("Section " + section.getSectionName() + " has no assigned instructor.");
+            return;
+        }
+        System.out.println("Successfully removed " + section.getAssignedInstructor().getName() +
+                " from section " + section.getSectionName());
+        section.setAssignedInstructor(null);
+    }
+
+    public void removeCourseFromInstructor(String instructorID, String courseID) {
+        Instructor instructor = findInstructorbyID(instructorID);
+        if (instructor == null) {
+            System.out.println("Instructor not found.");
+            return;
+        }
+        if (instructor.getCourseList().isEmpty()) {
+            System.out.println("This instructor has no assigned courses.");
+            return;
+        }
+        for (int i = 0; i < instructor.getCourseList().size(); i++) {
+            if (instructor.getCourseList().get(i).getCourseID().equals(courseID)) {
+                System.out.println("Successfully removed " + instructor.getCourseList().get(i).getCourseName() +
+                        " from " + instructor.getName());
+                instructor.getCourseList().remove(i);
+                return;
+            }
+        }
+        System.out.println("Course ID " + courseID + " is not assigned to this instructor.");
     }
 
     public Instructor findInstructorbyID(String instructorID){

@@ -11,6 +11,12 @@ public class DepartmentRegistrationImp implements DepartmentRegistration {
     private Scanner input = new Scanner(System.in);
 
     public void saveDepartment(Department department){
+        for (int i = 0; i < departmentList.size(); i++){
+            if (departmentList.get(i).getDepId().equals(department.getDepId())) {
+                System.out.println("Department ID " + department.getDepId() + " already exists.");
+                return;
+            }
+        }
         departmentList.add(department);
         System.out.println(department.getDepartmentName() + " added to the system.");
     }
@@ -34,15 +40,18 @@ public class DepartmentRegistrationImp implements DepartmentRegistration {
 
                 updatedDep.setSections(departmentList.get(i).getSections());
                 departmentList.set(i, updatedDep);
+                System.out.println("Successfully updated.");
                 return;
             }
         }
+        System.out.println("Department not found.");
     }
 
     public void removeDepartment(String departmentID){
         for (int i = 0; departmentList.size() > i; i++) {
             if (departmentList.get(i).getDepId().equals(departmentID)) {
                 departmentList.remove(i);
+                System.out.println("Successfully Deleted.");
                 return;
             }
         }
@@ -82,5 +91,7 @@ public class DepartmentRegistrationImp implements DepartmentRegistration {
      return null;
 
     }
-
+    public List<Department> getDepartmentList() {
+        return departmentList;
+    }
 }
