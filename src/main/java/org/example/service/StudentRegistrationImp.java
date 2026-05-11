@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentRegistrationImp implements StudentRegistration {
@@ -68,5 +69,8 @@ public class StudentRegistrationImp implements StudentRegistration {
             }
         }
         return null;
+    }
+    public List<Student> getStudentList(){
+        return studentList;
     }
 }

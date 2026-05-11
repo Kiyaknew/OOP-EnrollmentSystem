@@ -9,8 +9,15 @@ public class CourseRegistrationImpl implements CourseRegistration{
     static Scanner input = new Scanner(System.in);
     private List<Course> courseList = new ArrayList<>();
 
-    public void saveCourse(Course course){
+    public void saveCourse(Course course) {
+        for (int i = 0; i < courseList.size(); i++) {
+            if (courseList.get(i).getCourseID().equals(course.getCourseID())) {
+                System.out.println("Course ID " + course.getCourseID() + " already exists.");
+                return;
+            }
+        }
         courseList.add(course);
+        System.out.println(course.getCourseName() + " added to the system.");
     }
 
     public void displayAllCourse(){
@@ -25,29 +32,33 @@ public class CourseRegistrationImpl implements CourseRegistration{
     public void updateCourse(Course course){
         for(int i = 0; i<courseList.size(); i++){
             if(courseList.get(i).getCourseID().equals(course.getCourseID())){
-                System.out.println("Enter name: ");
+                System.out.print("Enter name: ");
                 String name = input.nextLine();
 
-                System.out.println("Enter program: ");
+                System.out.print("Enter program: ");
                 String program = input.nextLine();
 
                 System.out.print("Enter units: ");
-                int units = input.nextInt();
+                int units = Integer.parseInt(input.nextLine());
 
                 courseList.set(i, new Course(course.getCourseID(), name, program, units));
-                break;
+                System.out.println("Course successfully updated.");
+                return;
             }
         }
+        System.out.println("Course ID " + course.getCourseID() + " does not exist.");
     }
 
-    public String removeCourse(Course course){
+    public void removeCourse(Course course){
         for(int i = 0; i<courseList.size(); i++){
             if(courseList.get(i).getCourseID().equals(course.getCourseID())){
                 courseList.remove(i);
-                return "Successfully Deleted";
+                System.out.println("Successfully Deleted");
+                return;
             }
         }
-        return "Error.";
+        System.out.println("Course ID " + course.getCourseID() + " does not exist.");
+        return;
     }
 
     public Course findCourseByID(String courseId){
@@ -57,5 +68,8 @@ public class CourseRegistrationImpl implements CourseRegistration{
             }
         }
         return null;
+    }
+    public List<Course> getCourseList() {
+        return courseList;
     }
 }
