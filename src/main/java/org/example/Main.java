@@ -555,8 +555,80 @@ public class Main {
         }
     }
 
-            static void tuitionMenu(){}
-
-
-
+    static void tuitionMenu(){
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n|-------------- TUITION FEE -------------|");
+            System.out.println("= 1 = Calculate Tuition");
+            System.out.println("= 2 = Make Payment");
+            System.out.println("= 3 = View Balance");
+            System.out.println("= 0 = Back");
+            System.out.println("|-------------- -------------------- -------------|");
+            System.out.print(">>>| Select a number: ");
+            switch (input.nextLine()) {
+                case "1": {
+                    if (studentReg.getStudentList().isEmpty()) {
+                        System.out.println("No students found. Please add a student first.");
+                        break;
+                    }
+                    try {
+                        registrar.displayAllStudent();
+                        System.out.print("Select Student ID: ");
+                        String id = input.nextLine();
+                        System.out.print("Enter Number of Units: ");
+                        int units = Integer.parseInt(input.nextLine());
+                        registrar.calculateTuition(id, units);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input! Units should be a number.");
+                    }
+                    break;
+                }
+                case "2": {
+                    if (studentReg.getStudentList().isEmpty()) {
+                        System.out.println("Student list empty.");
+                        break;
+                    }
+                    try {
+                        registrar.displayAllStudent();
+                        System.out.print("Select Student ID: ");
+                        String id = input.nextLine();
+                        TuitionFeePayment payment = tuitionReg.getPaymentByStudentID(id);
+                        if (payment == null) {
+                            System.out.println("No tuition record found. Please calculate tuition first.");
+                            break;
+                        }
+                        System.out.println("Current Balance: PHP " + payment.getBalance());
+                        System.out.print("Enter Payment Amount: ");
+                        double amount = Double.parseDouble(input.nextLine());
+                        registrar.makePayment(id, amount);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input! Amount should be a number.");
+                    }
+                    break;
+                }
+                case "3": {
+                    if (studentReg.getStudentList().isEmpty()) {
+                        System.out.println("No students found.");
+                        break;
+                    }
+                    registrar.displayAllStudent();
+                    System.out.print("Select Student ID: ");
+                    String id = input.nextLine();
+                    TuitionFeePayment payment = tuitionReg.getPaymentByStudentID(id);
+                    if (payment == null) {
+                        System.out.println("No tuition record found. Please calculate tuition first.");
+                        break;
+                    }
+                    registrar.viewBalance(id);
+                    break;
+                }
+                case "0":
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        }
+    }
 }
