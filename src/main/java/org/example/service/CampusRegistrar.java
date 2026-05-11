@@ -82,8 +82,7 @@ public class CampusRegistrar {
     }
 
     public String removeInstructor(Instructor instructor){
-        instructorReg.removeInstructor(instructor);
-        return "Successfully removed instructor from the records.";
+        return instructorReg.removeInstructor(instructor);
     }
 
     public String assignCourseToInstructor(String instructorID, String courseID){
@@ -95,6 +94,29 @@ public class CampusRegistrar {
         instructorReg.assignInstructorToSection(instructorID, sectionID, sectionReg);
         return "Successfully assigned instructor to section.";
     }
+
+ //SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
+
+    public String saveSection(Section section){
+        sectionReg.saveSection(section);
+        return "Succcess fully saved section!";
+    }
+
+    public String displayAllSection(){
+        sectionReg.displayAllSections();
+        return "All records displayed.";
+    }
+
+    public String updateSection(Section section){
+        sectionReg.updateSection(section);
+        return "Successfully updated section information";
+    }
+
+    public String removeSection(String sectionID){
+        return sectionReg.removeSection(sectionID);
+    }
+
+//DEPARTMENT !!!!
 
 
 
