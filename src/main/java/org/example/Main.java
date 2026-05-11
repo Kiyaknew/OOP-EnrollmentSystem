@@ -517,10 +517,43 @@ public class Main {
         }
 
     }
+    static void  enrollmentMenu(){
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n|-------------- DEPARTMENT MANAGEMENT -------------|");
+            System.out.println("= 1 = Enroll Student in Section");
+            System.out.println("= 0 = Back");
+            System.out.println("|--------------- ---------------------- -------------|");
+            System.out.print(">>>| Select a number: ");
+            switch (input.nextLine()) {
+                case "1": {
+                    if (studentReg.getStudentList().isEmpty()) {
+                        System.out.println("Student list empty. Cannot enroll");
+                        break;
+                    }
+                    if (sectionReg.getSectionList().isEmpty()) {
+                        System.out.println("Section list empty. Cannot enroll.");
+                        break;
+                    }
+                    registrar.displayAllStudent();
+                    System.out.print("Select Student ID: ");
+                    String studentID = input.nextLine();
+                    registrar.displayAllSection();
+                    System.out.println("Select Section ID: ");
+                    String sectionID = input.nextLine();
+                    registrar.enrollStudent(studentID, sectionID);
+                    break;
+                }
+                case "2":
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
 
-
-
-            static void  enrollmentMenu(){}
+        }
+    }
 
             static void tuitionMenu(){}
 
