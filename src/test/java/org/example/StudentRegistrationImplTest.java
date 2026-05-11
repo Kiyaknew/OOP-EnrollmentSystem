@@ -9,23 +9,65 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StudentRegistrationImplTest {
     private StudentRegistrationImp testStudentReg;
 
+    private StudentRegistrationImp studentService;
+
     @BeforeEach
     void setUp() {
-        testStudentReg = new StudentRegistrationImp();
+        studentService = new StudentRegistrationImp();
     }
 
     @Test
-    void testUpdateStudent() {
-        //Arrange
-        testStudentReg.saveStudent(new Student("S01", "Erika Trixie P. Dirilo", 20, "BSIT"));
+    void testSaveStudent_Success() {
+        Student student = new Student("1", "Amari", 20, "BSIT");
+        studentService.saveStudent(student);
+        assertEquals(1, studentService.getStudentList().size());
+    }
 
-        //Act
-        testStudentReg.updateStudent(new Student("S01", "Nigel Andrei A. Linatoc", 19, "MMA"));
+    @Test
+    void testSaveStudent_DuplicateID() {
+        Student student1 = new Student("1", "Amari", 20, "BSIT");
+        Student student2 = new Student("1", "Nigel", 22, "BSCS");
 
-        //Assert
-        Student updatedStudent = testStudentReg.findStudentByID("S01");
-        assertEquals("Nigel Andrei A. Linatoc", updatedStudent.getName());
-        assertEquals("MMA", updatedStudent.getProgram());
+        studentService.saveStudent(student1);
+        studentService.saveStudent(student2);
+
+        assertEquals(1, studentService.getStudentList().size());
+    }
+
+    @Test
+    void testFindStudentByID_FoundAndNotFound() {
+        Student student = new Student("2", "Nigel", 22, "BSCS");
+        studentService.saveStudent(student);
+
+        assertNotNull(studentService.findStudentByID("2"));
+        assertNull(studentService.findStudentByID("3"));
+    }
+
+    @Test
+    void testRemoveStudent_Success() {
+        Student student = new Student("1", "Amari", 20, "BSIT");
+        studentService.saveStudent(student);
+
+        studentService.removeStudent(student);
+        assertEquals(0, studentService.getStudentList().size());
+    }
+
+    @Test
+    void testRemoveStudent_NotFound() {
+        Student student = new Student("1", "Amari", 20, "BSIT");
+        studentService.removeStudent(student);
+    }
+
+    @Test
+    void testUpdateStudent_NotFound() {
+        Student student = new Student("99", "Unknown", 0, "None");
+        studentService.updateStudent(student);
+    }
+
+    @Test
+    void testDisplayAllStudent() {
+        studentService.saveStudent(new Student("1", "Nigel", 20, "BSIT"));
+        studentService.displayAllStudent();
     }
 }
 
