@@ -164,6 +164,21 @@ public class CampusRegistrar {
         return "";
     }
 
-//LAST IS TUITION METHODS
+//LAST IS TUITION METHODS!!!!!!!!!!!!!!!!!!!!!
 
+    public String calculateTuition(String studentID, int units){
+        tuitionReg.calculateFee(studentID, units);
+        return "";
+    }
+
+    public String makePayment(String studentID, double amount){
+        tuitionReg.makePayment(studentID, amount);
+        return "";
+    }
+
+    public String viewBalance(String studentID){
+        tuitionReg.getRemainingBalance(studentID);
+        return "";
+    }
+    //add other methods here just incase
 }
