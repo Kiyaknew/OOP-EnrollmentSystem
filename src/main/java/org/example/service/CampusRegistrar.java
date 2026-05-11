@@ -26,28 +26,28 @@ public class CampusRegistrar {
 //THIS IS FOR ALL STUDENT ACTIONS!!!!!!!!!!!!!11111
     public String saveStudent(Student student){
         studentReg.saveStudent(student);
-        return "Successfully registered " + student;
+        return "Redirecting. . .";
     }
 
     public String displayAllStudent(){
         studentReg.displayAllStudent();
-        return "All records displayed.";
+        return "Redirecting . . .";
     }
 
     public String updateStudent(Student student){
         studentReg.updateStudent(student);
-        return "Successfully updated " + student + "'s information.";
+        return "Redirecting . . .";
     }
 
     public String removeStudent(Student student){
         studentReg.removeStudent(student);
-        return "Successfully removed " + student;
+        return "Redirecting . . .";
     }
 
  //THIS IS FOR COURSE!!!!!!!!11
     public String saveCourse(Course course){
         courseReg.saveCourse(course);
-        return "Successfully saved " + course;
+        return "Redirecting . . .";
     }
 
     public String displayAllCourse(){
@@ -57,99 +57,115 @@ public class CampusRegistrar {
 
     public String updateCourse(Course course){
         courseReg.updateCourse(course);
-        return "Successfully updated " + course + "information.";
+        return "Redirecting . . .";
     }
 
     public String removeCourse(Course course){
         courseReg.removeCourse(course);
-        return "Successfully removed " + course;
+        return "Redirecting . . .";
     }
 
 //FOR INSTRUCTOR!!!!!!!!!!!!!!!!!!!!!!!1
     public String saveInstructor(Instructor instructor){
         instructorReg.saveInstructor(instructor);
-        return "Successfully saved " + instructor + "as an instructor.";
+        return "Redirecting . . .";
     }
 
     public String displayAllInstructor(){
         instructorReg.displayAllInstructor();
-        return "All records displayed.";
+        return "Redirecting . . .";
     }
 
     public String updateInstructor(Instructor instructor){
         instructorReg.updateInstructor(instructor);
-        return "Successfully updated " + instructor + "information.";
+        return "Redirecting . . .";
     }
 
     public String removeInstructor(Instructor instructor){
-        return instructorReg.removeInstructor(instructor);
+         instructorReg.removeInstructor(instructor);
+         return "Redirecting";
     }
 
     public String assignCourseToInstructor(String instructorID, String courseID){
         instructorReg.addCourseInstructor(instructorID, courseID, courseReg);
-        return "Successfully assigned course to instructor.";
+        return "Redirecting . . .";
     }
 
     public String assignInstructorToSection(String instructorID, String sectionID){
         instructorReg.assignInstructorToSection(instructorID, sectionID, sectionReg);
-        return "Successfully assigned instructor to section.";
+        return "Redirecting . . .";
+    }
+
+    public String removeInstructorFromSection(String sectionID) {
+        instructorReg.removeInstructorFromSection(sectionID, sectionReg);
+        return "Redirecting . . .";
+    }
+
+    public String removeCourseFromInstructor(String instructorID, String courseID) {
+        instructorReg.removeCourseFromInstructor(instructorID, courseID);
+        return "Redirecting . . .";
     }
 
  //SECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
 
     public String saveSection(Section section){
         sectionReg.saveSection(section);
-        return "Succcess fully saved section!";
+        return "Redirecting . . .";
     }
 
     public String displayAllSection(){
         sectionReg.displayAllSections();
-        return "All records displayed.";
+        return "Redirecting . . .";
     }
 
     public String updateSection(Section section){
         sectionReg.updateSection(section);
-        return "Successfully updated section information";
+        return "Redirecting . . .";
     }
 
     public String removeSection(String sectionID){
-        return sectionReg.removeSection(sectionID);
+        sectionReg.removeSection(sectionID);
+        return "Redirecting . . .";
     }
 
 //DEPARTMENT !!!!
 
     public String saveDepartment(Department department){
         departmentReg.saveDepartment(department);
-        return "Successfully saved department to the system";
+        return "Redirecting . . .";
     }
 
     public String displayAllDepartment(){
         departmentReg.displayAllDepartment();
-        return "All records displayed.";
+        return "Redirecting . . .";
     }
 
     public String updateDepartment(Department department){
         departmentReg.updateDepartment(department);
-        return "Successfully updated department information";
+        return "Redirecting . . .";
     }
 
     public String removeDepartment(String departmentID){
         departmentReg.removeDepartment(departmentID);
-        return "Successfully removed department.";
+        return "Redirecting . . .";
     }
 
-    public String addSectiontoDepartment(String departmentID, String sectionID){
+    public String addSectiontoDepartment(String departmentID, String sectionID) {
+        Department dept = departmentReg.findDepartmentByID(departmentID);
+        if (dept == null) {
+            return "Department ID " + departmentID + " not found.";
+        }
         Section section = sectionReg.findSectionByID(sectionID);
-        if (section == null){
-            return "Section not found.";
+        if (section == null) {
+            return "Section ID " + sectionID + " not found.";
         }
         departmentReg.addSectiontoDepartment(departmentID, section);
-        return "Succesfully added section from department.";
+        return "Successfully added " + section.getSectionName() + " to " + dept.getDepartmentName();
     }
 
     public String removeSectionFromDepartment(String departmentID, String sectionID){
         departmentReg.removeSectionFromDepartment(departmentID,sectionID);
-        return "Successfully removed section from department.";
+        return "Redirecting . . .";
     }
 
 //FOR ENROLLMENT

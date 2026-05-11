@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentRegistrationImp implements StudentRegistration {
@@ -10,16 +11,22 @@ public class StudentRegistrationImp implements StudentRegistration {
     private ArrayList<Student> studentList = new ArrayList<>();
 
     public void saveStudent(Student student) {
+        for (int i = 0; i < studentList.size(); i++){
+            if (studentList.get(i).getId().equals(student.getId())) {
+                System.out.println("Student ID " + student.getId() + " already exists.");
+                return;
+            }
+        }
         studentList.add(student);
         System.out.println(student.getName() + " added to the system.");
     }
 
     public void displayAllStudent() {
         System.out.println("---------------------------STUDENT LISTS---------------------------");
-        for (int k = 0; k < studentList.size(); k++) {
-            System.out.println((k + 1) + ". " + studentList.get(k));
+            for (int k = 0; k < studentList.size(); k++) {
+                System.out.println((k + 1) + ". " + studentList.get(k));
 
-        }
+            }
         System.out.println("-------------------------------------------------------------------");
     }
 
@@ -38,19 +45,21 @@ public class StudentRegistrationImp implements StudentRegistration {
 
                 studentList.set(i, new Student(student.getId(), name, age, program));
                 System.out.println("Student successfully updated.");
-                break;
+                return;
             }
         }
+        System.out.println("Student ID not found in the system.");
     }
 
-    public String removeStudent(Student student) {
+    public void removeStudent(Student student) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).getId().equals(student.getId())) {
                 studentList.remove(i);
-                return "Successfully Deleted.";
+                System.out.println("Successfully Deleted.");
+                return;
             }
         }
-        return "Error.";
+        System.out.println("Student ID " + student.getId() + " does not exist.");
     }
 
     public Student findStudentByID(String studentID) {
@@ -60,5 +69,8 @@ public class StudentRegistrationImp implements StudentRegistration {
             }
         }
         return null;
+    }
+    public List<Student> getStudentList(){
+        return studentList;
     }
 }

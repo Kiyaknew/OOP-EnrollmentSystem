@@ -6,6 +6,6 @@ public interface CourseRegistration {
     void saveCourse(Course course);
     void displayAllCourse();
     void updateCourse(Course course);
-    String removeCourse(Course course);
+    void removeCourse(Course course);
     Course findCourseByID(String courseID);
 }

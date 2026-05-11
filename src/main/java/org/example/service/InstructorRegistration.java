@@ -7,7 +7,9 @@ public interface InstructorRegistration {
     void saveInstructor(Instructor instructor);
     void displayAllInstructor();
     void updateInstructor(Instructor instructor);
-    String removeInstructor(Instructor instructor);
+    void removeInstructor(Instructor instructor);
     void addCourseInstructor(String instructorID, String courseID, CourseRegistration courseReg);
     void assignInstructorToSection(String instructorID, String sectionID, SectionRegistration sectionReg);
+    void removeInstructorFromSection(String sectionID, SectionRegistration sectionReg);
+    void removeCourseFromInstructor(String instructorID, String courseID);
 }

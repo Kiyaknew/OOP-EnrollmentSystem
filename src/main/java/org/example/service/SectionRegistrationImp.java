@@ -10,9 +10,14 @@ public class SectionRegistrationImp implements SectionRegistration{
     Scanner input = new Scanner(System.in);
 
     public void saveSection(Section section){
+        for (int i = 0; i < sectionList.size(); i++){
+            if (sectionList.get(i).getSectionID().equals(section.getSectionID())) {
+                System.out.println("Section ID " + section.getSectionID() + " already exists.");
+                return;
+            }
+        }
         sectionList.add(section);
-        System.out.println(section.getSectionName() + "added to the system.");
-
+        System.out.println(section.getSectionName() + " added to the system.");
     }
 
     public void displayAllSections(){
@@ -35,14 +40,14 @@ public class SectionRegistrationImp implements SectionRegistration{
                 String program = input.nextLine();
 
                 System.out.print("Current Max Capacity: " + sectionList.get(i).getMaxCapacity() + "\n" + "Enter max capacity: ");
-                int capacity = input.nextInt();
+                int capacity = Integer.parseInt(input.nextLine());
 
                 Section updatedSection = new Section(section.getSectionID(), name, capacity, program);
 
                 updatedSection.setAssignedInstructor(sectionList.get(i).getAssignedInstructor());
                 updatedSection.setEnrolledList(sectionList.get(i).getEnrolledList());
-
                 sectionList.set(i, updatedSection);
+                System.out.println("Section successfully updated.");
                 return;
 
             }
@@ -50,13 +55,15 @@ public class SectionRegistrationImp implements SectionRegistration{
 
     }
 
-    public String removeSection(String sectionID){
+    public void removeSection(String sectionID){
         for(int i = 0; sectionList.size() > i; i++){
             if (sectionList.get(i).getSectionID().equals(sectionID)){
                 sectionList.remove(i);
+                System.out.println("Successfully deleted");
+                return;
             }
         }
-        return "Section not found.";
+        System.out.println("Section does not exist.");
     }
 
     public Section findSectionByID(String sectionID){
@@ -66,6 +73,9 @@ public class SectionRegistrationImp implements SectionRegistration{
             }
         }
         return null;
+    }
+    public List<Section> getSectionList(){
+        return sectionList;
     }
 
 }

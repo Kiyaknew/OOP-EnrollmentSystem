@@ -59,7 +59,7 @@ public class TuitionFeePayment {
                 "Student = '" + student + '\'' +
                 ", Total Tuition = '" + totalTuition + '\'' +
                 ", Balance = '" + balance + '\'' +
-                ", Status = '" + (balance == 0 ? "FULLY PAID" : "UNPAID");
+                ", Status = '" + (balance == 0 ? "FULLY PAID" : "UNPAID") + "}";
     }
 
 
