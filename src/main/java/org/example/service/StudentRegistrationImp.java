@@ -22,10 +22,10 @@ public class StudentRegistrationImp implements StudentRegistration {
 
     public void displayAllStudent() {
         System.out.println("---------------------------STUDENT LISTS---------------------------");
-        for (int k = 0; k < studentList.size(); k++) {
-            System.out.println((k + 1) + ". " + studentList.get(k));
+            for (int k = 0; k < studentList.size(); k++) {
+                System.out.println((k + 1) + ". " + studentList.get(k));
 
-        }
+            }
         System.out.println("-------------------------------------------------------------------");
     }
 
@@ -50,14 +50,15 @@ public class StudentRegistrationImp implements StudentRegistration {
         System.out.println("Student ID not found in the system.");
     }
 
-    public String removeStudent(Student student) {
+    public void removeStudent(Student student) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).getId().equals(student.getId())) {
                 studentList.remove(i);
-                return "Successfully Deleted.";
+                System.out.println("Successfully Deleted.");
+                return;
             }
         }
-        return "Error.";
+        System.out.println("Student ID " + student.getId() + " does not exist.");
     }
 
     public Student findStudentByID(String studentID) {

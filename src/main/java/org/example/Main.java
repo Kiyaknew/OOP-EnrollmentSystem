@@ -40,20 +40,28 @@ public class Main {
             switch (input.nextLine()) {
                 case "1":
                     studentMenu();
+                    break;
                 case "2":
                     courseMenu();
+                    break;
                 case "3":
                     instructorMenu();
+                    break;
                 case "4":
                     sectionMenu();
+                    break;
                 case "5":
                     departmentMenu();
+                    break;
                 case "6":
                     enrollmentMenu();
+                    break;
                 case "7":
                     tuitionMenu();
+                    break;
                 case "0":
                     runSystem = false;
+                    break;
                 default:
                     System.out.println("Invalid choice!");
             }
@@ -104,13 +112,14 @@ public class Main {
                     registrar.displayAllStudent();
                     System.out.print("Input student ID to remove: ");
                     String id = input.nextLine();
-                    System.out.println(registrar.removeStudent(new Student(id)));
+                    registrar.removeStudent(new Student(id));
                     break;
                 }
                 case "0":
                     back = true;
                     break;
                 default: System.out.println("Invalid choice!");
+                break;
             }
         }
     }

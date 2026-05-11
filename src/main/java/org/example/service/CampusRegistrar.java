@@ -26,28 +26,28 @@ public class CampusRegistrar {
 //THIS IS FOR ALL STUDENT ACTIONS!!!!!!!!!!!!!11111
     public String saveStudent(Student student){
         studentReg.saveStudent(student);
-        return "Successfully registered " + student;
+        return "Redirecting. . .";
     }
 
     public String displayAllStudent(){
         studentReg.displayAllStudent();
-        return "All records displayed.";
+        return "Redirecting . . .";
     }
 
     public String updateStudent(Student student){
         studentReg.updateStudent(student);
-        return "Successfully updated " + student + "'s information.";
+        return "Redirecting . . .";
     }
 
     public String removeStudent(Student student){
         studentReg.removeStudent(student);
-        return "Successfully removed " + student;
+        return "Redirecting . . .";
     }
 
  //THIS IS FOR COURSE!!!!!!!!11
     public String saveCourse(Course course){
         courseReg.saveCourse(course);
-        return "Successfully saved " + course;
+        return "Redirecting . . .";
     }
 
     public String displayAllCourse(){
