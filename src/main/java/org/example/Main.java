@@ -616,7 +616,7 @@ public class Main {
                     String id = input.nextLine();
                     TuitionFeePayment payment = tuitionReg.getPaymentByStudentID(id);
                     if (payment == null) {
-                        System.out.println("No tuition record found. Please calculate tuition first.");
+                        System.out.println("No tuition record found. Please calculate tuition before viewing.");
                         break;
                     }
                     registrar.viewBalance(id);
