@@ -82,7 +82,8 @@ public class CampusRegistrar {
     }
 
     public String removeInstructor(Instructor instructor){
-        return instructorReg.removeInstructor(instructor);
+         instructorReg.removeInstructor(instructor);
+         return "Redirecting";
     }
 
     public String assignCourseToInstructor(String instructorID, String courseID){

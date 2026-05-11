@@ -12,6 +12,12 @@ public class InstructorRegistrationImp implements InstructorRegistration {
     private List<Instructor> instructorList = new ArrayList<>();
 
     public void saveInstructor(Instructor instructor) {
+        for (int i = 0; i < instructorList.size(); i++){
+            if (instructorList.get(i).getId().equals(instructor.getId())) {
+                System.out.println("Instructor ID " + instructor.getId() + " already exists.");
+                return;
+            }
+        }
         instructorList.add(instructor);
         System.out.println(instructor.getName() + " added to the system.");
     }
@@ -32,12 +38,13 @@ public class InstructorRegistrationImp implements InstructorRegistration {
                 String name = input.nextLine();
 
                 System.out.print("Enter age: ");
-                int age = input.nextInt();
+                int age = Integer.parseInt(input.nextLine());
 
                 Instructor updatedInstructor = new Instructor(instructor.getId(), name, age);
                 updatedInstructor.setCourseList(instructorList.get(i).getCourseList());
                 instructorList.set(i, updatedInstructor);
-
+                System.out.println("Instructor successfully updated.");
+                return;
             }
         }
         System.out.println("No Instructor Found with ID.");
@@ -45,14 +52,15 @@ public class InstructorRegistrationImp implements InstructorRegistration {
     }
 
 
-    public String removeInstructor(Instructor instructor) {
+    public void removeInstructor(Instructor instructor) {
         for (int i = 0; i < instructorList.size(); i++) {
             if (instructorList.get(i).getId().equals(instructor.getId())) {
                 instructorList.remove(i);
-                return "Successfully Deleted.";
+                System.out.println("Successfully Deleted.");
+                return;
             }
         }
-        return "Error.";
+        System.out.println("Instructor ID " + instructor.getId() + " does not exist.");
     }
 
     public void addCourseInstructor(String instructorID, String courseID, CourseRegistration courseReg){
@@ -100,6 +108,9 @@ public class InstructorRegistrationImp implements InstructorRegistration {
             }
         }
         return null;
+    }
+    public List<Instructor> getInstructorList(){
+        return instructorList;
     }
 }
 

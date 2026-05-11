@@ -201,7 +201,107 @@ public class Main {
             }
         }
     }
-            static void instructorMenu(){}
+    static void instructorMenu(){
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n|-------------- INSTRUCTOR MANAGEMENT -------------|");
+            System.out.println("= 1 = Add Instructor");
+            System.out.println("= 2 = View All Instructor");
+            System.out.println("= 3 = Update Instructor Information");
+            System.out.println("= 4 = Remove Instructor");
+            System.out.println("= 5 = Assign Course to Instructor");
+            System.out.println("= 6 = Assign Instructor to Section");
+            System.out.println("= 0 = Back");
+            System.out.println("|--------------- ------------------ -------------|");
+            System.out.print(">>>| Select a number: ");
+            switch (input.nextLine()) {
+                case "1": {
+                    try {
+                        System.out.print("Instructor ID: ");
+                        String id = input.nextLine();
+                        System.out.print("Instructor Name: ");
+                        String name = input.nextLine();
+                        System.out.print("Age: ");
+                        int age = Integer.parseInt(input.nextLine());
+                        System.out.println(registrar.saveInstructor(new Instructor(id, name, age)));
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input! Age should be a number");
+                    }
+                    break;
+                }
+                case "2":
+                    if (instructorReg.getInstructorList().isEmpty()) {
+                        System.out.println("No existing instructors.");
+                        break;
+                    }
+                    registrar.displayAllInstructor();
+                    System.out.println("\nTo see assigned sections of instructors, kindly navigate to the Sections Management.");
+                    break;
+                case "3": {
+                    if (instructorReg.getInstructorList().isEmpty()) {
+                        System.out.println("Instructor list empty. Cannot update.");
+                        break;
+                    }
+                    registrar.displayAllInstructor();
+                    System.out.print("Input Instructor ID to update: ");
+                    String id = input.nextLine();
+                    registrar.updateInstructor(new Instructor(id));
+                    break;
+                }
+                case "4": {
+                    if (instructorReg.getInstructorList().isEmpty()) {
+                        System.out.println("Instructor list empty. Cannot remove.");
+                        break;
+                    }
+                    registrar.displayAllInstructor();
+                    System.out.print("Input Instructor ID to remove: ");
+                    String id = input.nextLine();
+                    registrar.removeInstructor(new Instructor(id));
+                    break;
+                }
+                case "5":
+                    if (instructorReg.getInstructorList().isEmpty()) {
+                        System.out.println("Instructor list empty. Please add an instructor first.");
+                        break;
+                    }
+                    if (courseReg.getCourseList().isEmpty()) {
+                        System.out.println("Course list empty. Please add a course first.");
+                        break;
+                    }
+                    registrar.displayAllInstructor();
+                    System.out.print("Select Instructor ID: ");
+                    String assignInstructorCourse = input.nextLine();
+                    registrar.displayAllCourse();
+                    System.out.print("Select Course ID: ");
+                    String cID = input.nextLine();
+                    System.out.println(registrar.assignCourseToInstructor(assignInstructorCourse, cID));
+                    break;
+                case "6":
+                    if (instructorReg.getInstructorList().isEmpty()) {
+                        System.out.println("Instructor list empty. Please add an instructor first.");
+                        break;
+                    }
+                    if (sectionReg.getSectionList().isEmpty()) {
+                        System.out.println("Section list empty. Please add a section first.");
+                        break;
+                    }
+                    registrar.displayAllInstructor();
+                    System.out.print("Select Instructor ID: ");
+                    String assignInstructorSection = input.nextLine();
+                    registrar.displayAllSection();
+                    System.out.print("Select Section ID: ");
+                    String sID = input.nextLine();
+                    System.out.println(registrar.assignCourseToInstructor(assignInstructorSection, sID));
+                    break;
+                case "0":
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        }
+    }
 
             static void departmentMenu(){}
 

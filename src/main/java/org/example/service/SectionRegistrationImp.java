@@ -67,6 +67,9 @@ public class SectionRegistrationImp implements SectionRegistration{
         }
         return null;
     }
+    public List<Section> getSectionList(){
+        return sectionList;
+    }
 
 }
 
