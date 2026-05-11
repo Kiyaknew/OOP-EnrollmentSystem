@@ -154,7 +154,16 @@ public class CampusRegistrar {
 
 //FOR ENROLLMENT
 
+    public String enrollStudent(String studentID, String sectionID){
+        enrollmentReg.enrollStudentInSection(studentID, sectionID);
+        return "Enrolled student in the section";
+    }
 
+    public String viewDepartmentHierarchy(String departmentID){
+        enrollmentReg.viewDepartmentHierarchy(departmentID);
+        return "";
+    }
 
+//LAST IS TUITION METHODS
 
 }
