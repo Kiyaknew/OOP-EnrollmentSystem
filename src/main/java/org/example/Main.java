@@ -302,10 +302,76 @@ public class Main {
             }
         }
     }
+    static void sectionMenu(){
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n|-------------- SECTION MANAGEMENT -------------|");
+            System.out.println("= 1 = Add Section");
+            System.out.println("= 2 = View All Sections");
+            System.out.println("= 3 = Update Section Information");
+            System.out.println("= 4 = Remove Section");
+            System.out.println("= 0 = Back");
+            System.out.println("|--------------- ------------------ -------------|");
+            System.out.print(">>>| Select a number: ");
+            switch (input.nextLine()) {
+                case "1": {
+                    try {
+                        System.out.print("Section ID: ");
+                        String id = input.nextLine();
+                        System.out.print("Section Name: ");
+                        String name = input.nextLine();
+                        System.out.print("Max Capacity: ");
+                        int cap = Integer.parseInt(input.nextLine());
+                        System.out.print("Program: ");
+                        String program = input.nextLine();
+                        System.out.println(registrar.saveSection(new Section(id, name, cap, program)));
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input! Capacity should be a number");
+                    }
+                    break;
+                }
+                case "2":
+                    if (sectionReg.getSectionList().isEmpty()) {
+                        System.out.println("No existing sections.");
+                        break;
+                    }
+                    registrar.displayAllSection();
+                    break;
+                case "3": {
+                    if (sectionReg.getSectionList().isEmpty()) {
+                        System.out.println("Section list empty. Cannot update.");
+                        break;
+                    }
+                    registrar.displayAllSection();
+                    System.out.print("Input Section ID to update: ");
+                    String id = input.nextLine();
+                    registrar.updateSection(new Section(id));
+                    break;
+                }
+                case "4": {
+                    if (sectionReg.getSectionList().isEmpty()) {
+                        System.out.println("Section list empty. Cannot remove.");
+                        break;
+                    }
+                    registrar.displayAllSection();
+                    System.out.print("Input Section ID to remove: ");
+                    String id = input.nextLine();
+                    registrar.removeSection(id);
+                    break;
+                }
+                case "0":
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        }
 
+    }
             static void departmentMenu(){}
 
-            static void sectionMenu(){}
+
 
             static void  enrollmentMenu(){}
 

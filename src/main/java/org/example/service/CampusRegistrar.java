@@ -114,7 +114,8 @@ public class CampusRegistrar {
     }
 
     public String removeSection(String sectionID){
-        return sectionReg.removeSection(sectionID);
+        sectionReg.removeSection(sectionID);
+        return "Redirecting . . .";
     }
 
 //DEPARTMENT !!!!

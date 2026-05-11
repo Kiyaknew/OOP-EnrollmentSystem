@@ -74,6 +74,16 @@ public class Section {
     public void setEnrolledList(List<Student> enrolledList){
         this.enrolledList = enrolledList;
     }
+    @Override
+    public String toString() {
+        return "Section{" +
+                "ID='" + sectionID + '\'' +
+                ", Name='" + sectionName + '\'' +
+                ", Program='" + program + '\'' +
+                ", Capacity=" + enrolledList.size() + "/" + maxCapacity +
+                ", Instructor=" + (assignedInstructor != null ? assignedInstructor.getName() : "TBA") +
+                '}';
+    }
 
 }
 
