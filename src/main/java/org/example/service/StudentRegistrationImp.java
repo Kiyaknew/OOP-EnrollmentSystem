@@ -10,6 +10,12 @@ public class StudentRegistrationImp implements StudentRegistration {
     private ArrayList<Student> studentList = new ArrayList<>();
 
     public void saveStudent(Student student) {
+        for (int i = 0; i < studentList.size(); i++){
+            if (studentList.get(i).getId().equals(student.getId())) {
+                System.out.println("Student ID " + student.getId() + " already exists.");
+                return;
+            }
+        }
         studentList.add(student);
         System.out.println(student.getName() + " added to the system.");
     }
@@ -38,9 +44,10 @@ public class StudentRegistrationImp implements StudentRegistration {
 
                 studentList.set(i, new Student(student.getId(), name, age, program));
                 System.out.println("Student successfully updated.");
-                break;
+                return;
             }
         }
+        System.out.println("Student ID not found in the system.");
     }
 
     public String removeStudent(Student student) {

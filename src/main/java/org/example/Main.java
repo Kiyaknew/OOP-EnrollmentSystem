@@ -63,8 +63,70 @@ public class Main {
     //student menu
 
     static void studentMenu(){
-
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n|-------------- STUDENT MANAGEMENT -------------|");
+            System.out.println("= 1 = Add Student");
+            System.out.println("= 2 = View All Students");
+            System.out.println("= 3 = Update Student Information");
+            System.out.println("= 4 = Remove Student");
+            System.out.println("= 0 = Back");
+            System.out.println("|-------------- -------------------- -------------|");
+            System.out.println(">>>| Select a number: ");
+            switch (input.nextLine()){
+                case "1": {
+                    try{
+                        System.out.print("Student ID: ");
+                        String id = input.nextLine();
+                        System.out.print("Name: ");
+                        String name = input.nextLine();
+                        System.out.print("Age: ");
+                        int age = Integer.parseInt(input.nextLine());
+                        System.out.print("Program: ");
+                        String program = input.nextLine();
+                        System.out.println(registrar.saveStudent(new Student(id, name, age, program)));
+                    } catch (NumberFormatException e){
+                        System.out.println("Invalid input! Age should be a number");
+                    }
+                    break;
+                }
+                case "2":
+                    registrar.displayAllStudent();
+                    break;
+                case "3": {
+                    registrar.displayAllStudent();
+                    System.out.print("Input student ID to update: ");
+                    String id = input.nextLine();
+                    registrar.updateStudent(new Student(id));
+                    break;
+                }
+                case "4": {
+                    registrar.displayAllStudent();
+                    System.out.print("Input student ID to remove: ");
+                    String id = input.nextLine();
+                    System.out.println(registrar.removeStudent(new Student(id)));
+                    break;
+                }
+                case "0":
+                    back = true;
+                    break;
+                default: System.out.println("Invalid choice!");
+            }
+        }
     }
+    static void courseMenu(){
+    }
+
+    static void instructorMenu(){}
+
+    static void departmentMenu(){}
+
+    static void sectionMenu(){}
+
+    static void  enrollmentMenu(){}
+
+    static void tuitionMenu(){}
+
 
 
 }
