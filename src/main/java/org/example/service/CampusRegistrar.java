@@ -81,15 +81,23 @@ public class CampusRegistrar {
         return "Successfully updated " + instructor + "information.";
     }
 
-    public String assignCourse(Instructor instructor){
-        instructorReg.addCourseInstructor(instructor);
-        return "Successfully added course to instructor.";
-    }
-
     public String removeInstructor(Instructor instructor){
         instructorReg.removeInstructor(instructor);
         return "Successfully removed instructor from the records.";
     }
+
+    public String assignCourseToInstructor(String instructorID, String courseID){
+        instructorReg.addCourseInstructor(instructorID, courseID, courseReg);
+        return "Successfully assigned course to instructor.";
+    }
+
+    public String assignInstructorToSection(String instructorID, String sectionID){
+        instructorReg.assignInstructorToSection(instructorID, sectionID, sectionReg);
+        return "Successfully assigned instructor to section.";
+    }
+
+
+
 
 
 }
