@@ -73,4 +73,48 @@ public class StudentRegistrationImp implements StudentRegistration {
     public List<Student> getStudentList(){
         return studentList;
     }
+
+    public void applyScholarship(String studentID, double discountRate) {
+        Student student = findStudentByID(studentID);
+        if (student == null) {
+            System.out.println("Student not found.");
+            return;
+        }
+        if (student.isScholar()) {
+            System.out.println(student.getName() + " is already a scholar with " +
+                    student.getDiscountRate() + "% discount.");
+            return;
+        }
+        student.setIsScholar(true);
+        student.setDiscountRate(discountRate);
+        System.out.println("Successfully applied " + discountRate + "% scholarship discount to " +
+                student.getName());
+    }
+
+    public void removeScholarship(String studentID) {
+        Student student = findStudentByID(studentID);
+        if (student == null) {
+            System.out.println("Student not found.");
+            return;
+        }
+        if (!student.isScholar()) {
+            System.out.println(student.getName() + " is not a scholar.");
+            return;
+        }
+        student.setIsScholar(false);
+        student.setDiscountRate(0.0);
+        System.out.println("Successfully removed scholarship from " + student.getName());
+    }
+    public void searchByName(String name) {
+        System.out.println("---------------------------SEARCH RESULTS---------------------------");
+        boolean found = false;
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getName().toLowerCase().contains(name.toLowerCase())) {
+                System.out.println(studentList.get(i));
+                found = true;
+            }
+        }
+        if (!found) System.out.println("No students found with name: " + name);
+        System.out.println("--------------------------------------------------------------------");
+    }
 }

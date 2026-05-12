@@ -78,5 +78,21 @@ public class SectionRegistrationImp implements SectionRegistration{
         return sectionList;
     }
 
+    public void displaySectionStudentCount() {
+        if (sectionList.isEmpty()) {
+            System.out.println("No sections found.");
+            return;
+        }
+        System.out.println("---------------------------SECTION STUDENT COUNT---------------------------");
+        for (int i = 0; i < sectionList.size(); i++) {
+            Section section = sectionList.get(i);
+            String status = section.getEnrolledList().size() >= section.getMaxCapacity() ? " (FULL)" : "";
+            System.out.println((i + 1) + ". " + section.getSectionName() +
+                    ": " + section.getEnrolledList().size() +
+                    "/" + section.getMaxCapacity() + status);
+        }
+        System.out.println("--------------------------------------------------------------------------");
+    }
+
 }
 

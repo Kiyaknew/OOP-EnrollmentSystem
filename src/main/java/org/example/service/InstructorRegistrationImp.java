@@ -153,6 +153,19 @@ public class InstructorRegistrationImp implements InstructorRegistration {
     public List<Instructor> getInstructorList(){
         return instructorList;
     }
+
+    public void searchByName(String name) {
+        System.out.println("---------------------------SEARCH RESULTS---------------------------");
+        boolean found = false;
+        for (int i = 0; i < instructorList.size(); i++) {
+            if (instructorList.get(i).getName().toLowerCase().contains(name.toLowerCase())) {
+                System.out.println(instructorList.get(i));
+                found = true;
+            }
+        }
+        if (!found) System.out.println("No instructors found with name: " + name);
+        System.out.println("--------------------------------------------------------------------");
+    }
 }
 
 

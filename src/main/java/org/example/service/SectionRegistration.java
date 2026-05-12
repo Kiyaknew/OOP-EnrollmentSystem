@@ -8,5 +8,6 @@ public interface SectionRegistration {
     void updateSection(Section section);
     void removeSection(String sectionID);
     Section findSectionByID(String sectionID);
+    void displaySectionStudentCount();
 
 }

@@ -37,6 +37,14 @@ public class TuitionRegistrationImp implements TuitionRegistration{
             return;
         }
         TuitionFeePayment payment = new TuitionFeePayment(student, units);
+        if (student.isScholar()) {
+            double discount = payment.getTotalTuition() * (student.getDiscountRate() / 100);
+            double discountedTotal = payment.getTotalTuition() - discount;
+            payment.setTotalTuition(discountedTotal);
+            payment.setBalance(discountedTotal);
+            System.out.println("Scholarship discount of " + student.getDiscountRate() +
+                    "% applied! Saving PHP " + discount);
+        }
         payments.add(payment);
         System.out.println("Tuition calculated for " + student.getName() + " || Total: PHP " + payment.getTotalTuition() );
     }

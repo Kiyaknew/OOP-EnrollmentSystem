@@ -2,6 +2,8 @@ package org.example.model;
 
 public class Student extends Person{
     private String program;
+    private boolean isScholar;
+    private double discountRate;
 
     public Student(){
         super();
@@ -22,6 +24,8 @@ public class Student extends Person{
     public Student(String studentID, String studentName, int studentAge, String program){
         super(studentID, studentName, studentAge);
         this.program = program;
+        this.isScholar = false;
+        this.discountRate = 0.0;
     }
 
     public String getProgram(){
@@ -30,6 +34,22 @@ public class Student extends Person{
 
     public void setProgram(String program){
         this.program = program;
+    }
+
+    public boolean isScholar() {
+        return isScholar;
+    }
+
+    public void setIsScholar(boolean isScholar) {
+        this.isScholar = isScholar;
+    }
+
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
     }
 
     @Override
