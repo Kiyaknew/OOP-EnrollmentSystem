@@ -213,4 +213,16 @@ public class CampusRegistrar {
         sectionReg.displaySectionStudentCount();
         return "Redirecting . . .";
     }
+
+    //SEARCH FUNCTION
+    public String searchStudent(String name) {
+        studentReg.searchByName(name);
+        return "Redirecting . . .";
+    }
+
+    public String searchInstructor(String name) {
+        instructorReg.searchByName(name);
+        return "Redirecting . . .";
+    }
+
 }

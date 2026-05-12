@@ -10,5 +10,5 @@ public interface StudentRegistration {
     Student findStudentByID(String studentID);
     void applyScholarship(String studentID, double discountRate);
     void removeScholarship(String studentID);
-
+    void searchByName(String name);
 }

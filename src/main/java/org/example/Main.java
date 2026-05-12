@@ -34,6 +34,7 @@ public class Main {
             System.out.println("= 5 = Department Management");
             System.out.println("= 6 = Enroll Student");
             System.out.println("= 7 = Calculate Student Tuition");
+            System.out.println("= 8 = Search Instructor/Student");
             System.out.println("= 0 = Exit the System");
             System.out.println("|-------------- ------------------------------ -------------|");
             System.out.println(">>>| Select a number: ");
@@ -59,6 +60,9 @@ public class Main {
                 case "7":
                     tuitionMenu();
                     break;
+                case "8":
+                    searchMenu();
+                    break;
                 case "0":
                     runSystem = false;
                     break;
@@ -70,7 +74,7 @@ public class Main {
     }
     //student menu
 
-    static void studentMenu(){
+    static void studentMenu() {
         boolean back = false;
         while (!back) {
             System.out.println("\n|-------------- STUDENT MANAGEMENT -------------|");
@@ -83,9 +87,9 @@ public class Main {
             System.out.println("= 0 = Back");
             System.out.println("|-------------- -------------------- -------------|");
             System.out.print(">>>| Select a number: ");
-            switch (input.nextLine()){
+            switch (input.nextLine()) {
                 case "1": {
-                    try{
+                    try {
                         System.out.print("Student ID: ");
                         String id = input.nextLine();
                         System.out.print("Name: ");
@@ -95,7 +99,7 @@ public class Main {
                         System.out.print("Program: ");
                         String program = input.nextLine();
                         System.out.println(registrar.saveStudent(new Student(id, name, age, program)));
-                    } catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println("Invalid input! Age should be a number");
                     }
                     break;
@@ -163,11 +167,13 @@ public class Main {
                 case "0":
                     back = true;
                     break;
-                default: System.out.println("Invalid choice!");
-                break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
             }
         }
     }
+
     static void courseMenu() {
         boolean back = false;
         while (!back) {
@@ -234,7 +240,8 @@ public class Main {
             }
         }
     }
-    static void instructorMenu(){
+
+    static void instructorMenu() {
         boolean back = false;
         while (!back) {
             System.out.println("\n|-------------- INSTRUCTOR MANAGEMENT -------------|");
@@ -361,7 +368,8 @@ public class Main {
             }
         }
     }
-    static void sectionMenu(){
+
+    static void sectionMenu() {
         boolean back = false;
         while (!back) {
             System.out.println("\n|-------------- SECTION MANAGEMENT -------------|");
@@ -442,7 +450,8 @@ public class Main {
             }
         }
     }
-    static void departmentMenu(){
+
+    static void departmentMenu() {
         boolean back = false;
         while (!back) {
             System.out.println("\n|-------------- DEPARTMENT MANAGEMENT -------------|");
@@ -458,11 +467,11 @@ public class Main {
             System.out.print(">>>| Select a number: ");
             switch (input.nextLine()) {
                 case "1": {
-                        System.out.print("Department ID: ");
-                        String id = input.nextLine();
-                        System.out.print("Department Name: ");
-                        String name = input.nextLine();
-                        System.out.println(registrar.saveDepartment(new Department(id, name)));
+                    System.out.print("Department ID: ");
+                    String id = input.nextLine();
+                    System.out.print("Department Name: ");
+                    String name = input.nextLine();
+                    System.out.println(registrar.saveDepartment(new Department(id, name)));
                     break;
                 }
                 case "2":
@@ -554,7 +563,8 @@ public class Main {
         }
 
     }
-    static void  enrollmentMenu(){
+
+    static void enrollmentMenu() {
         boolean back = false;
         while (!back) {
             System.out.println("\n|-------------- DEPARTMENT MANAGEMENT -------------|");
@@ -592,7 +602,7 @@ public class Main {
         }
     }
 
-    static void tuitionMenu(){
+    static void tuitionMenu() {
         boolean back = false;
         while (!back) {
             System.out.println("\n|-------------- TUITION FEE -------------|");
@@ -657,6 +667,38 @@ public class Main {
                         break;
                     }
                     registrar.viewBalance(id);
+                    break;
+                }
+                case "0":
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        }
+    }
+
+    static void searchMenu() {
+        boolean back = false;
+        while (!back) {
+            System.out.println("\n|-------------- SEARCH -------------|");
+            System.out.println("= 1 = Search Student by Name");
+            System.out.println("= 2 = Search Instructor by Name");
+            System.out.println("= 0 = Back");
+            System.out.println("|-------------- -------------------- -------------|");
+            System.out.print(">>>| Select a number: ");
+            switch (input.nextLine()) {
+                case "1": {
+                    System.out.print("Enter name to search: ");
+                    String name = input.nextLine();
+                    registrar.searchStudent(name);
+                    break;
+                }
+                case "2": {
+                    System.out.print("Enter name to search: ");
+                    String name = input.nextLine();
+                    registrar.searchInstructor(name);
                     break;
                 }
                 case "0":

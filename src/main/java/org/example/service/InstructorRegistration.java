@@ -12,4 +12,5 @@ public interface InstructorRegistration {
     void assignInstructorToSection(String instructorID, String sectionID, SectionRegistration sectionReg);
     void removeInstructorFromSection(String sectionID, SectionRegistration sectionReg);
     void removeCourseFromInstructor(String instructorID, String courseID);
+    void searchByName(String name);
 }

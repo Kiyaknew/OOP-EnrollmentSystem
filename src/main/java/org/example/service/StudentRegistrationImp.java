@@ -105,4 +105,16 @@ public class StudentRegistrationImp implements StudentRegistration {
         student.setDiscountRate(0.0);
         System.out.println("Successfully removed scholarship from " + student.getName());
     }
+    public void searchByName(String name) {
+        System.out.println("---------------------------SEARCH RESULTS---------------------------");
+        boolean found = false;
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getName().toLowerCase().contains(name.toLowerCase())) {
+                System.out.println(studentList.get(i));
+                found = true;
+            }
+        }
+        if (!found) System.out.println("No students found with name: " + name);
+        System.out.println("--------------------------------------------------------------------");
+    }
 }
