@@ -567,10 +567,10 @@ public class Main {
     static void enrollmentMenu() {
         boolean back = false;
         while (!back) {
-            System.out.println("\n|-------------- DEPARTMENT MANAGEMENT -------------|");
+            System.out.println("\n|-------------- ENROLLMENT -------------|");
             System.out.println("= 1 = Enroll Student in Section");
             System.out.println("= 0 = Back");
-            System.out.println("|--------------- ---------------------- -------------|");
+            System.out.println("|--------------- ----------- -------------|");
             System.out.print(">>>| Select a number: ");
             switch (input.nextLine()) {
                 case "1": {
@@ -591,7 +591,7 @@ public class Main {
                     registrar.enrollStudent(studentID, sectionID);
                     break;
                 }
-                case "2":
+                case "0":
                     back = true;
                     break;
                 default:
