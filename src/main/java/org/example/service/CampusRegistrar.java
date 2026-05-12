@@ -207,4 +207,10 @@ public class CampusRegistrar {
         studentReg.removeScholarship(studentID);
         return "Redirecting . . .";
     }
+
+    //SECTIONSTUDENT COUNT
+    public String displaySectionStudentCount() {
+        sectionReg.displaySectionStudentCount();
+        return "Redirecting . . .";
+    }
 }

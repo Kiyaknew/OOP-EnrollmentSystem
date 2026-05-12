@@ -370,6 +370,7 @@ public class Main {
             System.out.println("= 3 = Update Section Information");
             System.out.println("= 4 = Remove Section");
             System.out.println("= 5 = Unassign Instructors");
+            System.out.println("= 6 = View Student Count per Section");
             System.out.println("= 0 = Back");
             System.out.println("|--------------- ------------------ -------------|");
             System.out.print(">>>| Select a number: ");
@@ -428,6 +429,9 @@ public class Main {
                     System.out.print("Select Section ID to remove instructor from: ");
                     String removeSectionID = input.nextLine();
                     System.out.println(registrar.removeInstructorFromSection(removeSectionID));
+                    break;
+                case "6":
+                    registrar.displaySectionStudentCount();
                     break;
                 case "0":
                     back = true;
