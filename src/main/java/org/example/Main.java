@@ -78,6 +78,8 @@ public class Main {
             System.out.println("= 2 = View All Students");
             System.out.println("= 3 = Update Student Information");
             System.out.println("= 4 = Remove Student");
+            System.out.println("= 5 = Apply Scholarship Discount");
+            System.out.println("= 6 = Remove Scholarship");
             System.out.println("= 0 = Back");
             System.out.println("|-------------- -------------------- -------------|");
             System.out.print(">>>| Select a number: ");
@@ -127,6 +129,37 @@ public class Main {
                     registrar.removeStudent(new Student(id));
                     break;
                 }
+                case "5": {
+                    if (studentReg.getStudentList().isEmpty()) {
+                        System.out.println("Student list empty. Cannot apply discount.");
+                        break;
+                    }
+                    try {
+                        registrar.displayAllStudent();
+                        System.out.print("Select Student ID: ");
+                        String id = input.nextLine();
+                        System.out.print("Enter Discount Rate (e.g. 50 for 50%): ");
+                        double discount = Double.parseDouble(input.nextLine());
+                        if (discount <= 0 || discount > 100) {
+                            System.out.println("Invalid discount rate. Must be between 1 and 100.");
+                            break;
+                        }
+                        System.out.println(registrar.applyScholarship(id, discount));
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input! Discount rate should be a number.");
+                    }
+                    break;
+                }
+                case "6":
+                    if (studentReg.getStudentList().isEmpty()) {
+                        System.out.println("Student list empty. Cannot remove.");
+                        break;
+                    }
+                    registrar.displayAllStudent();
+                    System.out.print("Select Student ID: ");
+                    String id = input.nextLine();
+                    System.out.println(registrar.removeScholarship(id));
+                    break;
                 case "0":
                     back = true;
                     break;

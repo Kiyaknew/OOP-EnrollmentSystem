@@ -196,5 +196,15 @@ public class CampusRegistrar {
         tuitionReg.getRemainingBalance(studentID);
         return "";
     }
-    //add other methods here just incase
+    //SCHOLARSHIP
+
+    public String applyScholarship(String studentID, double discountRate) {
+        studentReg.applyScholarship(studentID, discountRate);
+        return "Redirecting . . .";
+    }
+
+    public String removeScholarship(String studentID) {
+        studentReg.removeScholarship(studentID);
+        return "Redirecting . . .";
+    }
 }
